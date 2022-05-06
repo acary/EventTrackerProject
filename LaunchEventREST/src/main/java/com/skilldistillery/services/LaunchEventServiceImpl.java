@@ -19,4 +19,10 @@ public class LaunchEventServiceImpl implements LaunchEventService {
 		return repo.findAll();
 	}
 
+	@Override
+	public List<LaunchEvent> findByTitleLike(String keyword) {
+		keyword = "%" + keyword + "%";
+		return repo.findByTitleLike(keyword);
+	}
+
 }
