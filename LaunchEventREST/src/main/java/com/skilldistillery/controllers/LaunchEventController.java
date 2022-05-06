@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import com.skilldistillery.services.LaunchEventService;
 @RequestMapping("api")
 @RestController
 public class LaunchEventController {
+	
 	@Autowired
 	LaunchEventService serv;
 	
@@ -28,7 +30,7 @@ public class LaunchEventController {
 		return serv.index();
 	}
 	
-	@GetMapping("events/{keyword}")
+	@GetMapping("events/search/{keyword}")
 	private List<LaunchEvent> searchLaunchEvent(@PathVariable String keyword, HttpServletResponse res) {
 		List<LaunchEvent> events = serv.findByTitleLike(keyword);
 		if (events == null) {
@@ -36,40 +38,67 @@ public class LaunchEventController {
 		}
 		return events;
 	}
-	
-//	@GetMapping("events/{id}")
-//	private LaunchEvent showLaunchEvent(@PathVariable Integer id, HttpServletResponse res) {
-//		LaunchEvent event = serv.findById(id);
-//		if (event == null) {
-//			res.setStatus(404);
-//		}
-//		return event;
-//	}
 
-//	@GetMapping("events")
-//	public LaunchEvent addLaunchEvent(@RequestBody LaunchEvent eventParam, HttpServletRequest req, HttpServletResponse res) {
-//		serv.create(eventParam);
-//		res.setStatus(201);
-//		System.out.println(eventParam);
-//		return eventParam;
-//	}
-//
-//	@PutMapping("events/{id}")
-//	public LaunchEvent replaceLaunchEvent(@PathVariable Integer id, @RequestBody LaunchEvent updatedLaunchEvent, HttpServletRequest req, HttpServletResponse res) {
-//		LaunchEvent event = serv.findById(id);
-//		if (event == null) {
-//			res.setStatus(404);
-//		}
-//		updatedLaunchEvent = serv.updateLaunchEvent(id, updatedLaunchEvent);
-//		return updatedLaunchEvent;
-//	}
-//	
-//	@DeleteMapping("events/{id}")
-//	public boolean removeLaunchEvent(@PathVariable("id") Integer id, HttpServletRequest req, HttpServletResponse res) {
-//		boolean removed = serv.removeLaunchEvent(id);
-//		if (removed == false) {
-//			res.setStatus(404);
-//		}
-//		return removed;
-//	}
+	@GetMapping("events/{id}")
+	public LaunchEvent show(@PathVariable Integer id, HttpServletResponse res) {
+		LaunchEvent event = serv.findById(id);
+		if(event == null) {
+			res.setStatus(404);
+		}
+		return event;
+	}
+	
+	@PostMapping("events")
+	public LaunchEvent create(@RequestBody LaunchEvent event, HttpServletRequest req, HttpServletResponse res) {
+		try {
+			event = serv.create(event);
+			res.setStatus(201);
+			StringBuffer url = req.getRequestURL();
+			url.append("/").append(event.getId());
+			res.setHeader("Location", url.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.setStatus(400);
+			event = null;
+		}
+		return event;
+	}
+	
+	@PutMapping("events/{id}")
+	public LaunchEvent updateEvent(
+			@PathVariable("id") Integer id,
+			@RequestBody LaunchEvent event,
+			HttpServletResponse res
+	) {
+		try {
+			event.setId(id);
+			event = serv.update(id, event);
+			if (event == null) {
+				res.setStatus(404);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.setStatus(400);
+			event = null;
+		}
+		return event;
+	}
+	
+	@DeleteMapping("events/{id}")
+	public void deleteEvent(
+			@PathVariable Integer id,
+			HttpServletResponse res
+	) {
+		try {
+			if (serv.delete(id)) {
+				res.setStatus(204);
+			}
+			else {
+				res.setStatus(404);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.setStatus(400);
+		}
+	}
 }
