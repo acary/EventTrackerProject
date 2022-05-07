@@ -22,7 +22,19 @@ DROP TABLE IF EXISTS `launchevent` ;
 
 CREATE TABLE IF NOT EXISTS `launchevent` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `title` VARCHAR(45) NOT NULL,
+  `title` VARCHAR(100) NOT NULL,
+  `description` TEXT NULL,
+  `cover_image` VARCHAR(1000) NULL,
+  `event_date` DATETIME NULL,
+  `contact_email` VARCHAR(100) NULL,
+  `event_website` VARCHAR(1000) NULL,
+  `source_announcement` VARCHAR(1000) NULL,
+  `blockchain` VARCHAR(100) NULL,
+  `marketplace` VARCHAR(100) NULL,
+  `categories` VARCHAR(1000) NULL,
+  `marketplace_url` VARCHAR(1000) NULL,
+  `project_twitter` VARCHAR(1000) NULL,
+  `project_discord` VARCHAR(1000) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -42,7 +54,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `launcheventdb`;
-INSERT INTO `launchevent` (`id`, `title`) VALUES (1, 'Music Album NFT');
+INSERT INTO `launchevent` (`id`, `title`, `description`, `cover_image`, `event_date`, `contact_email`, `event_website`, `source_announcement`, `blockchain`, `marketplace`, `categories`, `marketplace_url`, `project_twitter`, `project_discord`) VALUES (1, 'Music Album NFT', 'The breakout album from upcoming band is not to miss.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `launchevent` (`id`, `title`, `description`, `cover_image`, `event_date`, `contact_email`, `event_website`, `source_announcement`, `blockchain`, `marketplace`, `categories`, `marketplace_url`, `project_twitter`, `project_discord`) VALUES (2, 'Craft Beer NFT', 'A special seasonal release that celebrates the spirit of summer is coming soon.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 COMMIT;
 

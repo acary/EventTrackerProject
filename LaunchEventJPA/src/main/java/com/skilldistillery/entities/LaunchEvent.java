@@ -1,7 +1,9 @@
 package com.skilldistillery.entities;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +18,37 @@ public class LaunchEvent {
 	int id;
 
 	String title;
+	String description;
+	
+	@Column(name = "cover_image")
+	String coverImage;
+	
+	@Column(name = "event_date")
+	LocalDateTime eventDate;
+	
+	@Column(name = "contact_email")
+	String contactEmail;
+	
+	@Column(name = "event_website")
+	String eventWebsite;
+	
+	@Column(name = "source_announcement")
+	String sourceAnnouncement;
+	
+	String blockchain;
+	
+	String marketplace;
+	
+	String categories;
+	
+	@Column(name = "marketplace_url")
+	String marketplaceUrl;
+	
+	@Column(name = "project_twitter")
+	String projectTwitter;
+	
+	@Column(name = "project_discord")
+	String projectDiscord;
 
 	public LaunchEvent() {
 	}
@@ -36,14 +69,105 @@ public class LaunchEvent {
 		this.title = title;
 	}
 
-	@Override
-	public String toString() {
-		return "Event [id=" + id + ", title=" + title + "]";
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getCoverImage() {
+		return coverImage;
+	}
+
+	public void setCoverImage(String coverImage) {
+		this.coverImage = coverImage;
+	}
+
+	public LocalDateTime getEventDate() {
+		return eventDate;
+	}
+
+	public void setEventDate(LocalDateTime eventDate) {
+		this.eventDate = eventDate;
+	}
+
+	public String getContactEmail() {
+		return contactEmail;
+	}
+
+	public void setContactEmail(String contactEmail) {
+		this.contactEmail = contactEmail;
+	}
+
+	public String getEventWebsite() {
+		return eventWebsite;
+	}
+
+	public void setEventWebsite(String eventWebsite) {
+		this.eventWebsite = eventWebsite;
+	}
+
+	public String getSourceAnnouncement() {
+		return sourceAnnouncement;
+	}
+
+	public void setSourceAnnouncement(String sourceAnnouncement) {
+		this.sourceAnnouncement = sourceAnnouncement;
+	}
+
+	public String getBlockchain() {
+		return blockchain;
+	}
+
+	public void setBlockchain(String blockchain) {
+		this.blockchain = blockchain;
+	}
+
+	public String getMarketplace() {
+		return marketplace;
+	}
+
+	public void setMarketplace(String marketplace) {
+		this.marketplace = marketplace;
+	}
+
+	public String getCategories() {
+		return categories;
+	}
+
+	public void setCategories(String categories) {
+		this.categories = categories;
+	}
+
+	public String getMarketplaceUrl() {
+		return marketplaceUrl;
+	}
+
+	public void setMarketplaceUrl(String marketplaceUrl) {
+		this.marketplaceUrl = marketplaceUrl;
+	}
+
+	public String getProjectTwitter() {
+		return projectTwitter;
+	}
+
+	public void setProjectTwitter(String projectTwitter) {
+		this.projectTwitter = projectTwitter;
+	}
+
+	public String getProjectDiscord() {
+		return projectDiscord;
+	}
+
+	public void setProjectDiscord(String projectDiscord) {
+		this.projectDiscord = projectDiscord;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, title);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -55,7 +179,13 @@ public class LaunchEvent {
 		if (getClass() != obj.getClass())
 			return false;
 		LaunchEvent other = (LaunchEvent) obj;
-		return id == other.id && Objects.equals(title, other.title);
+		return id == other.id;
+	}
+
+	@Override
+	public String toString() {
+		return "LaunchEvent [id=" + id + ", title=" + title + ", eventDate=" + eventDate + ", contactEmail="
+				+ contactEmail + ", eventWebsite=" + eventWebsite + ", categories=" + categories + "]";
 	}
 
 }

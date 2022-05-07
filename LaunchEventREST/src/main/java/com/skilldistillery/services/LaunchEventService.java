@@ -10,12 +10,12 @@ public interface LaunchEventService {
 
 	List<LaunchEvent> findByTitleLike(String keyword);
 	
-	public LaunchEvent findById(Integer filmId);
+	public LaunchEvent findById(Integer id);
 	
-	public LaunchEvent create(LaunchEvent film);
+	public LaunchEvent create(LaunchEvent event);
 	
-	public LaunchEvent update(Integer filmId, LaunchEvent film);
+	public LaunchEvent update(Integer id, LaunchEvent event);
 	
-	public boolean delete(Integer filmId);
+	public boolean delete(Integer id);
 
 }

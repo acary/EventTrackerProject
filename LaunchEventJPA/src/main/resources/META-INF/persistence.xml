@@ -5,7 +5,7 @@
     </provider>
 
 		<!-- List Entities Here -->
-		<class>com.skilldistillery.entities.Event</class> 
+		<class>com.skilldistillery.entities.LaunchEvent</class> 
 
 		<properties>
 			<property name="javax.persistence.jdbc.url"
