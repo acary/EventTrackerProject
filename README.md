@@ -6,12 +6,19 @@ LaunchEvent is an event service that tracks upcoming digital token launches.
 
 The application is made up of Spring Boot and Java Persistence Application (JPA) with a MySQL database.
 
+### Routes
+- `GET http://localhost:8082/api/index`
+- `GET http://localhost:8082/api/events/1`
+- `GET http://localhost:8082/api/events/1`
+- `POST http://localhost:8082/api/events`
+- `PUT http://localhost:8082/api/events/1`
+- `DELETE http://localhost:8082/api/events/2`
+
 ### Functionality:
 - Show All Launch Events
 - Search Launch Event By ID
 - Search Launch Events By Keyword
 - Add New Launch Events
-- Show Launch Event Details
 - Update Launch Event
 - Delete Launch Event
 
