@@ -35,8 +35,7 @@ The application is made up of Spring Boot and Java Persistence Application (JPA)
 - Java Persistence Application (JPA)
 - MySQL
 - JavaSE-1.8
-  - Interfaces
-  - Collections; List, ArrayList
+- Gradle
 - Eclipse IDE
 
 ### Author
