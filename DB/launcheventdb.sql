@@ -54,8 +54,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `launcheventdb`;
-INSERT INTO `launchevent` (`id`, `title`, `description`, `cover_image`, `event_date`, `contact_email`, `event_website`, `source_announcement`, `blockchain`, `marketplace`, `categories`, `marketplace_url`, `project_twitter`, `project_discord`) VALUES (1, 'Music Album NFT', 'The breakout album from upcoming band is not to miss.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `launchevent` (`id`, `title`, `description`, `cover_image`, `event_date`, `contact_email`, `event_website`, `source_announcement`, `blockchain`, `marketplace`, `categories`, `marketplace_url`, `project_twitter`, `project_discord`) VALUES (2, 'Craft Beer NFT', 'A special seasonal release that celebrates the spirit of summer is coming soon.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `launchevent` (`id`, `title`, `description`, `cover_image`, `event_date`, `contact_email`, `event_website`, `source_announcement`, `blockchain`, `marketplace`, `categories`, `marketplace_url`, `project_twitter`, `project_discord`) VALUES (1, 'Music Album NFT', 'The breakout album from upcoming band is not to miss.', NULL, NULL, 'info@tokenize.com', 'http://andycarypro.com', NULL, 'Ethereum', 'OpenSea', 'music', NULL, NULL, NULL);
+INSERT INTO `launchevent` (`id`, `title`, `description`, `cover_image`, `event_date`, `contact_email`, `event_website`, `source_announcement`, `blockchain`, `marketplace`, `categories`, `marketplace_url`, `project_twitter`, `project_discord`) VALUES (2, 'Craft Beer NFT', 'A special seasonal release that celebrates the spirit of summer is coming soon.', NULL, NULL, 'contact@digitaltoken.com', 'http://andycarypro.com', NULL, 'Solana', 'OpenSea', 'beer', NULL, NULL, NULL);
 
 COMMIT;
 
