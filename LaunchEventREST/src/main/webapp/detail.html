@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Launch Event Detail</title>
+<script type="text/javascript" src="js/detailFunctions.js"></script>
+</head>
+<body>
+
+	<h1>Event Detail</h1>
+
+	<div id="output">
+		<div id="detailData"></div>
+	</div>
+	
+	<br>
+	<hr>
+	<h2>Edit</h2>
+	<form name='editEventForm'>
+		<input type='text' name='title' value='Event' /> 
+		<br>
+		<input type='text' name='description' value='Description' />
+		<br>
+		
+		<input type='text' name='categories' value='Category' /> 
+		<br>
+		<input type='text' name='blockchain' value='Blockchain' />
+		<br>
+		<input type='text' name='eventWebsite' value='http://andycarypro.com' />
+		<br>
+		
+		<input type='submit' name='updateEvent' value='Update Event' />
+	</form>
+	
+	<br>
+	<hr>
+	<h2>Danger Zone!</h2>
+	<button onclick="deleteEvent()">Delete</button>
+
+	<br>
+	<hr>
+	<a href="/">Go back</a>
+</body>
+</html>

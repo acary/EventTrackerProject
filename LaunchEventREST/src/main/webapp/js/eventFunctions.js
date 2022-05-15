@@ -42,9 +42,14 @@ function displayEvents(events) {
 	let dataDiv = document.getElementById('eventData');
 	dataDiv.textContent = '';
 	for (let i = 0; i < events.length; i++) {
+		
+		let detail = document.createElement('a');
+		detail.setAttribute("href", "detail.html?id=" + events[i].id);		
 		let h1 = document.createElement('h1');
-		h1.textContent = events[i].title;
-		dataDiv.appendChild(h1);
+		h1.textContent = events[i].title;	
+		detail.appendChild(h1);
+		dataDiv.appendChild(detail);
+		
 		let blockquote = document.createElement('blockquote');
 		blockquote.textContent = events[i].description;
 		dataDiv.appendChild(blockquote);
@@ -97,4 +102,5 @@ function createEvent() {
 	};
 	let eventObjectJson = JSON.stringify(newEvent);
 	xhr.send(eventObjectJson);
+	location.href = 'index.html';
 }
