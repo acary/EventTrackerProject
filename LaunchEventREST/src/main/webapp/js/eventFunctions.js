@@ -6,6 +6,12 @@ window.addEventListener('load', function(e) {
 function init() {
 	console.log("in init()");
 	getEvents();
+	
+	document.createEventForm.createEvent.addEventListener('click', function(e) {
+		e.preventDefault();
+		createEvent();
+		getEvents();
+	});
 }
 
 function getEvents() {
@@ -35,16 +41,13 @@ function getEvents() {
 function displayEvents(events) {
 	let dataDiv = document.getElementById('eventData');
 	dataDiv.textContent = '';
-	
 	for (let i = 0; i < events.length; i++) {
 		let h1 = document.createElement('h1');
 		h1.textContent = events[i].title;
 		dataDiv.appendChild(h1);
-	
 		let blockquote = document.createElement('blockquote');
 		blockquote.textContent = events[i].description;
 		dataDiv.appendChild(blockquote);
-	
 		let ul = document.createElement('ul');
 		let data = [];
 		data.push(events[i].categories);
@@ -57,5 +60,41 @@ function displayEvents(events) {
 		}
 		dataDiv.appendChild(ul);
 	}
-	
+}
+
+function createEvent() {
+	let form = document.createEventForm;
+	let newEvent = {		
+	    "title": form.title.value,
+	    "description": form.description.value,
+	    "coverImage": null,
+	    "eventDate": null,
+	    "contactEmail": "info@tokenize.com",
+	    "eventWebsite": "http://andycarypro.com",
+	    "sourceAnnouncement": null,
+	    "blockchain": "Ethereum",
+	    "marketplace": "OpenSea",
+	    "categories": "music",
+	    "marketplaceUrl": null,
+	    "projectTwitter": null,
+	    "projectDiscord": null
+	};
+	console.log(newEvent); // 
+	let xhr = new XMLHttpRequest();
+	xhr.open('POST', 'api/events', true);
+	xhr.setRequestHeader("Content-type", "application/json");
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === 4) {
+			if (xhr.status === 200 || xhr.status == 201) {
+				console.log(xhr.responseText); // 
+				let data = JSON.parse(xhr.responseText);
+				console.log(data); // 
+				displayEvents(data);
+			} else {
+				console.error(xhr.status + ': ' + xhr.responseText);
+			}
+		}
+	};
+	let eventObjectJson = JSON.stringify(newEvent);
+	xhr.send(eventObjectJson);
 }
