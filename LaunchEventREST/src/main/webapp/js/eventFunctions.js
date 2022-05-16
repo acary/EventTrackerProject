@@ -4,7 +4,7 @@ window.addEventListener('load', function(e) {
 });
 
 function init() {
-	console.log("in init()");
+	// console.log("in init()");
 	getEvents();
 	
 	document.createEventForm.createEvent.addEventListener('click', function(e) {
@@ -22,7 +22,7 @@ function getEvents() {
 			if (xhr.readyState === 4) {
 				if (xhr.status === 200) {
 					let events = JSON.parse(xhr.responseText);
-					console.log(events);
+					// console.log(events);
 					displayEvents(events);
 				}
 				else {
@@ -41,15 +41,30 @@ function getEvents() {
 function displayEvents(events) {
 	let dataDiv = document.getElementById('eventData');
 	dataDiv.textContent = '';
+	let aggregateDiv = document.getElementById('aggregateData');
+	let totalEvents = 0;
+	let totalCategories = {};
+	let countCategories = 0;
 	for (let i = 0; i < events.length; i++) {
+		// Aggregate data calculation
+		totalEvents++;	
+		if (!totalCategories[events[i].categories]) {
+			totalCategories[events[i].categories] = 1;
+		}
+		else {
+			totalCategories[events[i].categories] = totalCategories[events[i].categories] + 1;
+		}
+		for (let cat in totalCategories) {
+			countCategories++;
+		}
 		
+		// Event data
 		let detail = document.createElement('a');
 		detail.setAttribute("href", "detail.html?id=" + events[i].id);		
 		let h1 = document.createElement('h1');
 		h1.textContent = events[i].title;	
 		detail.appendChild(h1);
 		dataDiv.appendChild(detail);
-		
 		let blockquote = document.createElement('blockquote');
 		blockquote.textContent = events[i].description;
 		dataDiv.appendChild(blockquote);
@@ -65,6 +80,11 @@ function displayEvents(events) {
 		}
 		dataDiv.appendChild(ul);
 	}
+	
+	// Aggregate data display
+	let h2 = document.createElement('h2');
+	h2.textContent = "There are " + totalEvents + " events across " + countCategories + " categories!";	
+	aggregateDiv.appendChild(h2);
 }
 
 function createEvent() {
