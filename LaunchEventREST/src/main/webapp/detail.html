@@ -20,15 +20,17 @@
 		<hr>
 		<h2 class="display-5">Edit Event</h2>
 		<form name='editEventForm'>
-			<label for="title" class="form-label">Title</label>
+			<label for="title" class="form-label"><strong>Title</strong></label>
 			<input type='text' name='title' id="title" value='Event' class="form-control m-1" required/> 
-			<label for="description" class="form-label">Description</label>
+			<label for="description" class="form-label"><strong>Description</strong></label>
 			<input type='text' name='description' id="description" value='Description' class="form-control m-1" required/>
-			<label for="categories" class="form-label">Categories</label>
+			<label for="contactEmail" class="form-label"><strong>Contact Email</strong></label>
+			<input type='text' name='contactEmail' id="contactEmail" value='info@tokenize.com' class="form-control m-1"/>
+			<label for="categories" class="form-label"><strong>Categories</strong></label>
 			<input type='text' name='categories' id="categories" value='Category' class="form-control m-1"/>
-			<label for="Blockchain" class="form-label">Blockchain</label>
+			<label for="Blockchain" class="form-label"><strong>Blockchain</strong></label>
 			<input type='text' name='blockchain' id="blockchain" value='Blockchain' class="form-control m-1"/>
-			<label for="eventWebsite" class="form-label">Event Website</label>
+			<label for="eventWebsite" class="form-label"><strong>Event Website</strong></label>
 			<input type='text' name='eventWebsite' id="eventWebsite" value='http://andycarypro.com' class="form-control m-1"/>
 			<input type='submit' name='updateEvent' value='Update Event' class="btn btn-primary" class="m-1"/>
 		</form>

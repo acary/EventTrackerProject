@@ -14,16 +14,23 @@
 </head>
 <body>
 	<div class="container">
-		<h1 class="display-4">Upcoming Launch Events</h1>
-		<hr>
-		<div id="aggregateData" class="display-5"></div>
+		<h1 class="display-3">Upcoming Launch Events</h1>
+		<div id="aggregateData" class="display-6"></div>
 		<hr>
 		<h5 class="display-6">Create New Event</h5>
 		<form name='createEventForm'>
-			<label for="title" class="form-label">Title</label>
+			<label for="title" class="form-label"><strong>Title</strong></label>
 			<input type='text' name='title' id="title" value='Launch Event 1' class="form-control m-1" required/>
-			<label for="description" class="form-label">Description</label>
-			<input type='text' name='description' id="description" value='Upcoming launch event.' class="form-control m-1" required/><br>
+			<label for="description" class="form-label"><strong>Description</strong></label>
+			<input type='text' name='description' id="description" value='Upcoming launch event.' class="form-control m-1" required/>
+			<label for="contactEmail" class="form-label"><strong>Contact Email</strong></label>
+			<input type='text' name='contactEmail' id="contactEmail" value='info@tokenize.com' class="form-control m-1" required/>
+			<label for="categories" class="form-label"><strong>Categories</strong></label>
+			<input type='text' name='categories' id="categories" value='Category' class="form-control m-1"/>
+			<label for="Blockchain" class="form-label"><strong>Blockchain</strong></label>
+			<input type='text' name='blockchain' id="blockchain" value='Blockchain' class="form-control m-1"/>
+			<label for="eventWebsite" class="form-label"><strong>Event Website</strong></label>
+			<input type='text' name='eventWebsite' id="eventWebsite" value='http://andycarypro.com' class="form-control m-1"/>
 			<input type='submit' name='createEvent' value='Create Event' class="btn btn-primary" />
 		</form>
 		<hr>

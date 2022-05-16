@@ -58,6 +58,7 @@ function displayEvent(event) {
 	dataDiv.appendChild(blockquote);
 	let ul = document.createElement('ul');
 	let data = [];
+	data.push(event.contactEmail);
 	data.push(event.categories);
 	data.push(event.blockchain);
 	data.push(event.eventWebsite);
@@ -76,6 +77,7 @@ function editEvent() {
 	let form = document.editEventForm;
 	let event = {
 		'title': form.title.value,
+		'contactEmail': form.contactEmail.value,
 		'description': form.description.value,
 		'categories': form.categories.value,
 		'blockchain': form.blockchain.value,
@@ -99,6 +101,7 @@ function editEvent() {
 	};
 	let eventObjectJson = JSON.stringify(event);
 	xhr.send(eventObjectJson);
+	window.scrollTo(0, 0);
 }
 
 function deleteEvent() {

@@ -1,5 +1,5 @@
 window.addEventListener('load', function(e) {
-	console.log('document loaded.');
+	// console.log('document loaded.');
 	init();
 });
 
@@ -46,12 +46,11 @@ function displayEvents(events) {
 	let countCategories = 0;
 	for (let i = 0; i < events.length; i++) {
 		// Aggregate data calculation
-		totalEvents++;	
-		if (!totalCategories[events[i]]) {
+		totalEvents++;
+		if (!totalCategories[events[i]] <= 1 ) {
 			countCategories++;
-			totalCategories[events[i].categories] = 1;
+			totalCategories[events[i]] = 1;
 		}
-		
 		// Event data
 		let detail = document.createElement('a');
 		detail.setAttribute("href", "detail.html?id=" + events[i].id);		
@@ -65,6 +64,7 @@ function displayEvents(events) {
 		dataDiv.appendChild(blockquote);
 		let ul = document.createElement('ul');
 		let data = [];
+		data.push(events[i].contactEmail);
 		data.push(events[i].categories);
 		data.push(events[i].blockchain);
 		data.push(events[i].eventWebsite);
@@ -89,12 +89,12 @@ function createEvent() {
 	    "description": form.description.value,
 	    "coverImage": null,
 	    "eventDate": null,
-	    "contactEmail": "info@tokenize.com",
-	    "eventWebsite": "http://andycarypro.com",
+	    "contactEmail": form.contactEmail.value,
+	    "eventWebsite": form.eventWebsite.value,
 	    "sourceAnnouncement": null,
-	    "blockchain": "Ethereum",
+	    "blockchain": form.blockchain.value,
 	    "marketplace": "OpenSea",
-	    "categories": "music",
+	    "categories": form.categories.value,
 	    "marketplaceUrl": null,
 	    "projectTwitter": null,
 	    "projectDiscord": null
