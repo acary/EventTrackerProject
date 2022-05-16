@@ -6,7 +6,6 @@ window.addEventListener('load', function(e) {
 function init() {
 	// console.log("in init()");
 	getEvents();
-	
 	document.createEventForm.createEvent.addEventListener('click', function(e) {
 		e.preventDefault();
 		createEvent();
@@ -61,6 +60,7 @@ function displayEvents(events) {
 		// Event data
 		let detail = document.createElement('a');
 		detail.setAttribute("href", "detail.html?id=" + events[i].id);		
+		detail.style.textDecoration = "none";
 		let h1 = document.createElement('h1');
 		h1.textContent = events[i].title;	
 		detail.appendChild(h1);

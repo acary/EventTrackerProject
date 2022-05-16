@@ -6,7 +6,6 @@ window.addEventListener('load', function(e) {
 function init() {
 	console.log("in init()");
 	showDetails()
-	
 	document.editEventForm.updateEvent.addEventListener('click', function(e) {
 		e.preventDefault();
 		editEvent();
@@ -49,13 +48,11 @@ function getEvent(id) {
 
 function displayEvent(event) {
 	let dataDiv = document.getElementById('detailData');
-	dataDiv.textContent = '';
-	let detail = document.createElement('a');
-	detail.setAttribute("href", "detail.html?id=" + event.id);		
+	dataDiv.textContent = '';	
 	let h1 = document.createElement('h1');
+	h1.setAttribute("class", "display-3");
 	h1.textContent = event.title;	
-	detail.appendChild(h1);
-	dataDiv.appendChild(detail);
+	dataDiv.appendChild(h1);
 	let blockquote = document.createElement('blockquote');
 	blockquote.textContent = event.description;
 	dataDiv.appendChild(blockquote);
