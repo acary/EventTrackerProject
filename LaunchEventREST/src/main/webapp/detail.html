@@ -20,19 +20,17 @@
 		<hr>
 		<h2 class="display-5">Edit Event</h2>
 		<form name='editEventForm'>
-			<input type='text' name='title' value='Event' /> 
-			<br>
-			<input type='text' name='description' value='Description' />
-			<br>
-			
-			<input type='text' name='categories' value='Category' /> 
-			<br>
-			<input type='text' name='blockchain' value='Blockchain' />
-			<br>
-			<input type='text' name='eventWebsite' value='http://andycarypro.com' />
-			<br>
-			
-			<input type='submit' name='updateEvent' value='Update Event' />
+			<label for="title" class="form-label">Title</label>
+			<input type='text' name='title' id="title" value='Event' class="form-control m-1" required/> 
+			<label for="description" class="form-label">Description</label>
+			<input type='text' name='description' id="description" value='Description' class="form-control m-1" required/>
+			<label for="categories" class="form-label">Categories</label>
+			<input type='text' name='categories' id="categories" value='Category' class="form-control m-1"/>
+			<label for="Blockchain" class="form-label">Blockchain</label>
+			<input type='text' name='blockchain' id="blockchain" value='Blockchain' class="form-control m-1"/>
+			<label for="eventWebsite" class="form-label">Event Website</label>
+			<input type='text' name='eventWebsite' id="eventWebsite" value='http://andycarypro.com' class="form-control m-1"/>
+			<input type='submit' name='updateEvent' value='Update Event' class="btn btn-primary" class="m-1"/>
 		</form>
 		<hr>
 		<h2 class="display-6" style="color:red;">Danger Zone!</h2>

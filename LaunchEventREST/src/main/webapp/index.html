@@ -18,11 +18,13 @@
 		<hr>
 		<div id="aggregateData" class="display-5"></div>
 		<hr>
-		<h5 class="display-6">Create a new event</h5>
+		<h5 class="display-6">Create New Event</h5>
 		<form name='createEventForm'>
-			<input type='text' name='title' value='Launch Event 1' /><br>
-			<input type='text' name='description' value='Upcoming launch event.' /><br>
-			<input type='submit' name='createEvent' value='Create Event' />
+			<label for="title" class="form-label">Title</label>
+			<input type='text' name='title' id="title" value='Launch Event 1' class="form-control m-1" required/>
+			<label for="description" class="form-label">Description</label>
+			<input type='text' name='description' id="description" value='Upcoming launch event.' class="form-control m-1" required/><br>
+			<input type='submit' name='createEvent' value='Create Event' class="btn btn-primary" />
 		</form>
 		<hr>
 		<div id="output">

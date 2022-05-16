@@ -47,14 +47,9 @@ function displayEvents(events) {
 	for (let i = 0; i < events.length; i++) {
 		// Aggregate data calculation
 		totalEvents++;	
-		if (!totalCategories[events[i].categories]) {
-			totalCategories[events[i].categories] = 1;
-		}
-		else {
-			totalCategories[events[i].categories] = totalCategories[events[i].categories] + 1;
-		}
-		for (let cat in totalCategories) {
+		if (!totalCategories[events[i]]) {
 			countCategories++;
+			totalCategories[events[i].categories] = 1;
 		}
 		
 		// Event data
