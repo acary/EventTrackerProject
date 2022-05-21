@@ -57,7 +57,7 @@
     <p class="display-3 my-2">{{selected.title}}</p>
     <small class="fw-semibold lh-lg">Event <span class="badge bg-primary">{{selected.id}}</span></small>
     <blockquote class="lh-lg">{{selected.description}}</blockquote>
-    <p class="font-monospace">Event Date: {{selected.eventDate}}</p>
+    <p>Event Date: {{selected.eventDate}}</p>
     <p>Contact Email: {{selected.contactEmail}}</p>
     <p>Event Website: {{selected.eventWebsite}}</p>
     <p>Source Announcement: {{selected.sourceAnnouncement}}</p>
@@ -66,8 +66,37 @@
     <p>Project Twitter: {{selected.projectTwitter}}</p>
     <p>Project Discord: {{selected.projectDiscord}}</p>
     <button (click)="displayAll()" class="btn btn-secondary m-2">Back</button>
-    <!-- <button (click)="setEditEvent()" class="btn btn-info">Edit</button>
-    <button (click)="deleteEvent(selected.id)" class="btn btn-danger m-2">Delete</button> -->
+    <button (click)="setEditEvent(selected)" class="btn btn-info">Edit</button>
+    <!-- <button (click)="deleteEvent(selected.id)" class="btn btn-danger m-2">Delete</button> -->
   </div>
+
+  <div *ngIf="editEvent">
+    <hr>
+    <h5 class="display-6">Edit Event</h5>
+    <form>
+        <label>Title </label>
+        <input type="text" name="title" [(ngModel)]="editEvent.title" class="form-control" /><br>
+        <label>Description </label>
+        <input type="text" name="description" [(ngModel)]="editEvent.description" class="form-control" /><br>
+        <label>Event Date </label>
+        <input type="text" name="eventDate" [(ngModel)]="editEvent.eventDate" class="form-control" /><br>
+        <label>Contact Email </label>
+        <input type="text" name="contactEmail" [(ngModel)]="editEvent.contactEmail" class="form-control" /><br>
+        <label>Event Website </label>
+        <input type="text" name="eventWebsite" [(ngModel)]="editEvent.eventWebsite" class="form-control" /><br>
+        <label>Source Announcement </label>
+        <input type="text" name="sourceAnnouncement" [(ngModel)]="editEvent.sourceAnnouncement" class="form-control" /><br>
+        <label>Blockchain </label>
+        <input type="text" name="blockchain" [(ngModel)]="editEvent.blockchain" class="form-control" /><br>
+        <label>Marketplace </label>
+        <input type="text" name="marketplace" [(ngModel)]="editEvent.marketplace" class="form-control" /><br>
+        <label>Project Twitter </label>
+        <input type="text" name="projectTwitter" [(ngModel)]="editEvent.projectTwitter" class="form-control" /><br>
+        <label>Project Discord </label>
+        <input type="text" name="projectDiscord" [(ngModel)]="editEvent.projectDiscord" class="form-control" /><br>
+        <button type="button" (click)="cancelEdit()" class="btn btn-danger m-2">Cancel</button>
+        <button (click)="saveEdit(editEvent)" class="btn btn-success">Save</button>
+    </form>
+</div>
   <br>
 </div>

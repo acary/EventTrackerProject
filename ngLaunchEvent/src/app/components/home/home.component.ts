@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
 
   selected: LaunchEvent | null = null;
 
+  editEvent: LaunchEvent | null = null;
+
   constructor(
     private launchEventService: LaunchEventService
   ) { }
@@ -44,6 +46,20 @@ export class HomeComponent implements OnInit {
 
   displayAll(): void {
     this.selected = null;
+  }
+
+  setEditEvent(launchEvent: LaunchEvent): void {
+    this.editEvent = launchEvent;
+  }
+
+  cancelEdit = () => {
+    this.editEvent = null;
+  }
+
+  saveEdit = (event: LaunchEvent) => {
+    console.log(event);
+    this.editEvent = null;
+    this.displayEvent(event);
   }
 
 }
