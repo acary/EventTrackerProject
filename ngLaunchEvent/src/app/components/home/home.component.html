@@ -9,20 +9,44 @@
       <label for="title" class="form-label"><strong>Title</strong></label>
       <input type='text' name='title' [(ngModel)]="newLaunchEvent.title" ngDefaultControl placeholder='Launch Event 1'
         class="form-control m-1" required />
-      <label for="description" class="form-label"><strong>Description</strong></label>
-      <input type='text' name='description' id="description" placeholder='Upcoming launch event.' class="form-control m-1"
+      
+        <label for="description" class="form-label"><strong>Description</strong></label>
+      <input type='text' name='description' [(ngModel)]="newLaunchEvent.description" id="description" placeholder='Upcoming launch event.' class="form-control m-1"
         required />
+
+      <label for="eventDate" class="form-label"><strong>Event Date</strong></label>
+      <input type='text' name='eventDate' [(ngModel)]="newLaunchEvent.eventDate" id="eventDate" placeholder='2022-06-01' class="form-control m-1" />
+
       <label for="contactEmail" class="form-label"><strong>Contact Email</strong></label>
-      <input type='text' name='contactEmail' id="contactEmail" placeholder='info@tokenize.com' class="form-control m-1"
-        required />
-      <label for="categories" class="form-label"><strong>Categories</strong></label>
-      <input type='text' name='categories' id="categories" placeholder='Category' class="form-control m-1" />
-      <label for="Blockchain" class="form-label"><strong>Blockchain</strong></label>
-      <input type='text' name='blockchain' id="blockchain" placeholder='Blockchain' class="form-control m-1" />
+      <input type='text' name='contactEmail' [(ngModel)]="newLaunchEvent.contactEmail" id="contactEmail" placeholder='info@tokenize.com' class="form-control m-1"
+      required />
+      
       <label for="eventWebsite" class="form-label"><strong>Event Website</strong></label>
-      <input type='text' name='eventWebsite' id="eventWebsite" placeholder='http://andycarypro.com'
+      <input type='text' name='eventWebsite' [(ngModel)]="newLaunchEvent.eventWebsite" id="eventWebsite" placeholder='http://andycarypro.com'
         class="form-control m-1" />
-      <button (click)="submitEvent()" class="btn btn-primary">Create Event</button>
+      
+      <label for="sourceAnnouncement" class="form-label"><strong>Source Announcement</strong></label>
+      <input type='text' name='sourceAnnouncement' [(ngModel)]="newLaunchEvent.sourceAnnouncement" id="sourceAnnouncement" placeholder='http://andycarypro.com' class="form-control m-1" />
+
+      <label for="blockchain" class="form-label"><strong>Blockchain</strong></label>
+      <input type='text' name='blockchain' [(ngModel)]="newLaunchEvent.blockchain" id="blockchain" placeholder='Blockchain' class="form-control m-1" />
+
+      <label for="marketplace" class="form-label"><strong>Marketplace</strong></label>
+      <input type='text' name='marketplace' [(ngModel)]="newLaunchEvent.marketplace" id="marketplace" placeholder='OpenSea' class="form-control m-1" />
+
+      <label for="marketplaceUrl" class="form-label"><strong>Marketplace URL</strong></label>
+      <input type='text' name='marketplaceUrl' [(ngModel)]="newLaunchEvent.marketplaceUrl" id="marketplaceUrl" placeholder='http://andycarypro.com' class="form-control m-1" />
+
+      <label for="categories" class="form-label"><strong>Categories</strong></label>
+      <input type='text' name='categories' [(ngModel)]="newLaunchEvent.categories" id="categories" placeholder='Category' class="form-control m-1" />
+
+      <label for="projectTwitter" class="form-label"><strong>Project Twitter</strong></label>
+      <input type='text' name='projectTwitter' [(ngModel)]="newLaunchEvent.projectTwitter" id="projectTwitter" placeholder='@andycary' class="form-control m-1" />
+
+      <label for="projectDiscord" class="form-label"><strong>Project Discord</strong></label>
+      <input type='text' name='projectDiscord' [(ngModel)]="newLaunchEvent.projectDiscord" id="projectDiscord" placeholder='' class="form-control m-1" />
+      
+      <button (click)="createEvent(newLaunchEvent)" class="btn btn-primary">Create Event</button>
     </form>
     <hr>
   </div>
@@ -90,12 +114,16 @@
         <input type="text" name="blockchain" [(ngModel)]="editEvent.blockchain" class="form-control" /><br>
         <label>Marketplace </label>
         <input type="text" name="marketplace" [(ngModel)]="editEvent.marketplace" class="form-control" /><br>
+        <label>Marketplace URL</label>
+        <input type="text" name="marketplaceUrl" [(ngModel)]="editEvent.marketplaceUrl" class="form-control" /><br>
+        <label for="categories" class="form-label"><strong>Categories</strong></label>
+        <input type='text' name='categories' [(ngModel)]="editEvent.categories" id="categories" placeholder='Category' class="form-control m-1" />
         <label>Project Twitter </label>
         <input type="text" name="projectTwitter" [(ngModel)]="editEvent.projectTwitter" class="form-control" /><br>
         <label>Project Discord </label>
         <input type="text" name="projectDiscord" [(ngModel)]="editEvent.projectDiscord" class="form-control" /><br>
         <button type="button" (click)="cancelEdit()" class="btn btn-danger m-2">Cancel</button>
-        <button (click)="saveEdit(editEvent)" class="btn btn-success">Save</button>
+        <button (click)="updateEvent(selected.id, editEvent)" class="btn btn-success">Save</button>
     </form>
 </div>
   <br>

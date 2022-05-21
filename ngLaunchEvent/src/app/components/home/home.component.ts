@@ -63,6 +63,37 @@ export class HomeComponent implements OnInit {
     this.displayEvent(event);
   }
 
+  createEvent(event: LaunchEvent): void {
+    this.launchEventService.create(event).subscribe({
+      next: event => {
+        console.log("Created successfully: " + event.id);
+        this.launchEvents.push(event);
+        this.newLaunchEvent = new LaunchEvent();
+        this.reload();
+      },
+      error: (err) => {
+        console.error('Error creating event: ', err);
+      }
+    })
+  }
+
+  updateEvent = (id: number, event: LaunchEvent) => {
+    console.log(id);
+    console.log(event);
+    this.launchEventService.update(id, event).subscribe(
+      {
+        next: event => {
+          this.selected = null;
+          this.editEvent = null;
+          this.reload();
+        },
+        error: err => {
+          console.error('Error updating event: ', err);
+        }
+      }
+    );
+  }
+
   deleteEvent(id: number) {
     this.launchEventService.destroy(id).subscribe({
       next: () => {

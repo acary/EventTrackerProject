@@ -24,7 +24,7 @@ public class LaunchEvent {
 	String coverImage;
 	
 	@Column(name = "event_date")
-	LocalDateTime eventDate;
+	String eventDate;
 	
 	@Column(name = "contact_email")
 	String contactEmail;
@@ -85,11 +85,11 @@ public class LaunchEvent {
 		this.coverImage = coverImage;
 	}
 
-	public LocalDateTime getEventDate() {
+	public String getEventDate() {
 		return eventDate;
 	}
 
-	public void setEventDate(LocalDateTime eventDate) {
+	public void setEventDate(String eventDate) {
 		this.eventDate = eventDate;
 	}
 

@@ -21,6 +21,32 @@ export class LaunchEventService {
     return this.http.get<LaunchEvent[]>(this.url);
   }
 
+  create(event: LaunchEvent): Observable<LaunchEvent> {
+    return this.http.post<LaunchEvent>(this.url, event).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError(
+          () => new Error(
+            'Launch Event service create() error: ' + err
+          )
+        );
+      })
+    );
+  }
+
+  update(id: number, event: LaunchEvent) {
+    return this.http.put(this.url + `/` + id, event).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError(
+          () => new Error(
+            'Launch Event service update() error: ' + err
+          )
+        );
+      })
+    )
+  };
+
   destroy(id: number) {
     return this.http.delete(this.url + `/${id}`).pipe(
       catchError((err: any) => {
