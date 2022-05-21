@@ -25,7 +25,7 @@ public class LaunchEventController {
 	@Autowired
 	LaunchEventService serv;
 	
-	@GetMapping("index")
+	@GetMapping(path = { "/", "home.do", "index" })
 	public List<LaunchEvent> index() {
 		return serv.index();
 	}

@@ -134,3 +134,7 @@ function deleteEvent() {
 		console.log("Canceled deletion");
 	}
 }
+
+function goBack() {
+	location.href = 'index.html';
+}
