@@ -55,8 +55,16 @@
 
   <div *ngIf="selected">
     <p class="display-3 my-2">{{selected.title}}</p>
-    <p><span class="badge bg-primary">{{selected.id}}</span></p>
-    <p>{{selected.description}}</p>
+    <small class="fw-semibold lh-lg">Event <span class="badge bg-primary">{{selected.id}}</span></small>
+    <blockquote class="lh-lg">{{selected.description}}</blockquote>
+    <p class="font-monospace">Event Date: {{selected.eventDate}}</p>
+    <p>Contact Email: {{selected.contactEmail}}</p>
+    <p>Event Website: {{selected.eventWebsite}}</p>
+    <p>Source Announcement: {{selected.sourceAnnouncement}}</p>
+    <p>Blockchain: {{selected.blockchain}}</p>
+    <p>Marketplace: <a href={{selected.marketplaceUrl}} target="_blank">{{selected.marketplace}}</a></p>
+    <p>Project Twitter: {{selected.projectTwitter}}</p>
+    <p>Project Discord: {{selected.projectDiscord}}</p>
     <button (click)="displayAll()" class="btn btn-secondary m-2">Back</button>
     <!-- <button (click)="setEditEvent()" class="btn btn-info">Edit</button>
     <button (click)="deleteEvent(selected.id)" class="btn btn-danger m-2">Delete</button> -->
