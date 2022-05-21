@@ -46,6 +46,7 @@ export class HomeComponent implements OnInit {
 
   displayAll(): void {
     this.selected = null;
+    this.editEvent = null;
   }
 
   setEditEvent(launchEvent: LaunchEvent): void {
@@ -60,6 +61,19 @@ export class HomeComponent implements OnInit {
     console.log(event);
     this.editEvent = null;
     this.displayEvent(event);
+  }
+
+  deleteEvent(id: number) {
+    this.launchEventService.destroy(id).subscribe({
+      next: () => {
+        console.log("Deleted successfully: " + id);
+        this.reload();
+        this.selected = null;
+      },
+      error: (err) => {
+        console.error('Error deleting event: ', err);
+      }
+    });
   }
 
 }

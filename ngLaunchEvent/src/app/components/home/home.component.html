@@ -67,10 +67,10 @@
     <p>Project Discord: {{selected.projectDiscord}}</p>
     <button (click)="displayAll()" class="btn btn-secondary m-2">Back</button>
     <button (click)="setEditEvent(selected)" class="btn btn-info">Edit</button>
-    <!-- <button (click)="deleteEvent(selected.id)" class="btn btn-danger m-2">Delete</button> -->
+    <button (click)="deleteEvent(selected.id)" class="btn btn-danger m-2">Delete</button>
   </div>
 
-  <div *ngIf="editEvent">
+  <div *ngIf="editEvent && selected">
     <hr>
     <h5 class="display-6">Edit Event</h5>
     <form>
