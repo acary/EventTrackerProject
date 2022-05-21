@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LaunchEvent } from 'src/app/models/launch-event';
+import { LaunchEventService } from 'src/app/services/launch-event.service';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  launchEvents: LaunchEvent[] = [];
+
+  newLaunchEvent: LaunchEvent = new LaunchEvent();
+
+  constructor(
+    private launchEventService: LaunchEventService
+  ) { }
 
   ngOnInit(): void {
+    this.reload();
+    if(this.launchEvents) {
+      console.log(this.launchEvents);
+    }
   }
 
   submitEvent() {
     console.log('Submit event mocked...');
+  }
+
+  reload(): void {
+    this.launchEventService.index().subscribe({
+      next: launchEvents => {
+        this.launchEvents = launchEvents;
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
   }
 
 }

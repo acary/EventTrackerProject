@@ -1,26 +1,54 @@
 <div class="container">
-    <h1 class="display-3">Upcoming Launch Events</h1>
-    <div id="aggregateData" class="display-6"></div>
-    <hr>
-    <h5 class="display-6">Create New Event</h5>
-    <form name='createEventForm'>
-      <label for="title" class="form-label"><strong>Title</strong></label>
-      <input type='text' name='title' id="title" value='Launch Event 1' class="form-control m-1" required/>
-      <label for="description" class="form-label"><strong>Description</strong></label>
-      <input type='text' name='description' id="description" value='Upcoming launch event.' class="form-control m-1" required/>
-      <label for="contactEmail" class="form-label"><strong>Contact Email</strong></label>
-      <input type='text' name='contactEmail' id="contactEmail" value='info@tokenize.com' class="form-control m-1" required/>
-      <label for="categories" class="form-label"><strong>Categories</strong></label>
-      <input type='text' name='categories' id="categories" value='Category' class="form-control m-1"/>
-      <label for="Blockchain" class="form-label"><strong>Blockchain</strong></label>
-      <input type='text' name='blockchain' id="blockchain" value='Blockchain' class="form-control m-1"/>
-      <label for="eventWebsite" class="form-label"><strong>Event Website</strong></label>
-      <input type='text' name='eventWebsite' id="eventWebsite" value='http://andycarypro.com' class="form-control m-1"/>
-      <input (click)="submitEvent()" type='submit' name='createEvent' value='Create Event' class="btn btn-primary" />
-    </form>
-    <hr>
-    <div id="output">
-      <div id="eventData"></div>
-    </div>
-    <br>
+  <h1 class="display-3">Upcoming Launch Events</h1>
+  <div id="aggregateData" class="display-6"></div>
+  <hr>
+  <h5 class="display-6">Create New Event</h5>
+  <form>
+    <label for="title" class="form-label"><strong>Title</strong></label>
+    <input type='text' name='title' [(ngModel)]="newLaunchEvent.title" ngDefaultControl placeholder='Launch Event 1'
+      class="form-control m-1" required />
+    <label for="description" class="form-label"><strong>Description</strong></label>
+    <input type='text' name='description' id="description" placeholder='Upcoming launch event.' class="form-control m-1"
+      required />
+    <label for="contactEmail" class="form-label"><strong>Contact Email</strong></label>
+    <input type='text' name='contactEmail' id="contactEmail" placeholder='info@tokenize.com' class="form-control m-1"
+      required />
+    <label for="categories" class="form-label"><strong>Categories</strong></label>
+    <input type='text' name='categories' id="categories" placeholder='Category' class="form-control m-1" />
+    <label for="Blockchain" class="form-label"><strong>Blockchain</strong></label>
+    <input type='text' name='blockchain' id="blockchain" placeholder='Blockchain' class="form-control m-1" />
+    <label for="eventWebsite" class="form-label"><strong>Event Website</strong></label>
+    <input type='text' name='eventWebsite' id="eventWebsite" placeholder='http://andycarypro.com'
+      class="form-control m-1" />
+    <button (click)="submitEvent()" class="btn btn-primary">Create Event</button>
+  </form>
+  <hr>
+  <div id="events" *ngIf="launchEvents">
+    <h1 class="display-5">Launch Events</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Contact Email</th>
+          <th>Categories</th>
+          <th>Blockchain</th>
+          <th>Event Website</th>
+          <!-- <th>Created</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let launchEvent of launchEvents">
+          <td>{{launchEvent.title}}</td>
+          <td>{{launchEvent.description}}</td>
+          <td>{{launchEvent.contactEmail}}</td>
+          <td>{{launchEvent.categories}}</td>
+          <td>{{launchEvent.blockchain}}</td>
+          <td>{{launchEvent.eventWebsite}}</td>
+          <!-- <td>{{launchEvent.created}}</td> -->
+        </tr>
+      </tbody>
+    </table>
   </div>
+  <br>
+</div>
