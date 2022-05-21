@@ -13,15 +13,14 @@ export class HomeComponent implements OnInit {
 
   newLaunchEvent: LaunchEvent = new LaunchEvent();
 
+  selected: LaunchEvent | null = null;
+
   constructor(
     private launchEventService: LaunchEventService
   ) { }
 
   ngOnInit(): void {
     this.reload();
-    if(this.launchEvents) {
-      console.log(this.launchEvents);
-    }
   }
 
   submitEvent() {
@@ -37,6 +36,14 @@ export class HomeComponent implements OnInit {
         console.log(err);
       }
     });
+  }
+
+  displayEvent(launchEvent: LaunchEvent): void {
+    this.selected = launchEvent;
+  }
+
+  displayAll(): void {
+    this.selected = null;
   }
 
 }

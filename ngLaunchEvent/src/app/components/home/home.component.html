@@ -1,29 +1,33 @@
 <div class="container">
-  <h1 class="display-3">Upcoming Launch Events</h1>
-  <div id="aggregateData" class="display-6"></div>
-  <hr>
-  <h5 class="display-6">Create New Event</h5>
-  <form>
-    <label for="title" class="form-label"><strong>Title</strong></label>
-    <input type='text' name='title' [(ngModel)]="newLaunchEvent.title" ngDefaultControl placeholder='Launch Event 1'
-      class="form-control m-1" required />
-    <label for="description" class="form-label"><strong>Description</strong></label>
-    <input type='text' name='description' id="description" placeholder='Upcoming launch event.' class="form-control m-1"
-      required />
-    <label for="contactEmail" class="form-label"><strong>Contact Email</strong></label>
-    <input type='text' name='contactEmail' id="contactEmail" placeholder='info@tokenize.com' class="form-control m-1"
-      required />
-    <label for="categories" class="form-label"><strong>Categories</strong></label>
-    <input type='text' name='categories' id="categories" placeholder='Category' class="form-control m-1" />
-    <label for="Blockchain" class="form-label"><strong>Blockchain</strong></label>
-    <input type='text' name='blockchain' id="blockchain" placeholder='Blockchain' class="form-control m-1" />
-    <label for="eventWebsite" class="form-label"><strong>Event Website</strong></label>
-    <input type='text' name='eventWebsite' id="eventWebsite" placeholder='http://andycarypro.com'
-      class="form-control m-1" />
-    <button (click)="submitEvent()" class="btn btn-primary">Create Event</button>
-  </form>
-  <hr>
-  <div id="events" *ngIf="launchEvents">
+
+  <div *ngIf="!selected">
+    <h1 class="display-3">Upcoming Launch Events</h1>
+    <div id="aggregateData" class="display-6"></div>
+    <hr>
+    <h5 class="display-6">Create New Event</h5>
+    <form>
+      <label for="title" class="form-label"><strong>Title</strong></label>
+      <input type='text' name='title' [(ngModel)]="newLaunchEvent.title" ngDefaultControl placeholder='Launch Event 1'
+        class="form-control m-1" required />
+      <label for="description" class="form-label"><strong>Description</strong></label>
+      <input type='text' name='description' id="description" placeholder='Upcoming launch event.' class="form-control m-1"
+        required />
+      <label for="contactEmail" class="form-label"><strong>Contact Email</strong></label>
+      <input type='text' name='contactEmail' id="contactEmail" placeholder='info@tokenize.com' class="form-control m-1"
+        required />
+      <label for="categories" class="form-label"><strong>Categories</strong></label>
+      <input type='text' name='categories' id="categories" placeholder='Category' class="form-control m-1" />
+      <label for="Blockchain" class="form-label"><strong>Blockchain</strong></label>
+      <input type='text' name='blockchain' id="blockchain" placeholder='Blockchain' class="form-control m-1" />
+      <label for="eventWebsite" class="form-label"><strong>Event Website</strong></label>
+      <input type='text' name='eventWebsite' id="eventWebsite" placeholder='http://andycarypro.com'
+        class="form-control m-1" />
+      <button (click)="submitEvent()" class="btn btn-primary">Create Event</button>
+    </form>
+    <hr>
+  </div>
+
+  <div id="events" *ngIf="launchEvents && !selected">
     <h1 class="display-5">Launch Events</h1>
     <table class="table table-striped">
       <thead>
@@ -34,21 +38,28 @@
           <th>Categories</th>
           <th>Blockchain</th>
           <th>Event Website</th>
-          <!-- <th>Created</th> -->
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let launchEvent of launchEvents">
+        <tr *ngFor="let launchEvent of launchEvents" (click)="displayEvent(launchEvent)">
           <td>{{launchEvent.title}}</td>
           <td>{{launchEvent.description}}</td>
           <td>{{launchEvent.contactEmail}}</td>
           <td>{{launchEvent.categories}}</td>
           <td>{{launchEvent.blockchain}}</td>
           <td>{{launchEvent.eventWebsite}}</td>
-          <!-- <td>{{launchEvent.created}}</td> -->
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div *ngIf="selected">
+    <p class="display-3 my-2">{{selected.title}}</p>
+    <p><span class="badge bg-primary">{{selected.id}}</span></p>
+    <p>{{selected.description}}</p>
+    <button (click)="displayAll()" class="btn btn-secondary m-2">Back</button>
+    <!-- <button (click)="setEditEvent()" class="btn btn-info">Edit</button>
+    <button (click)="deleteEvent(selected.id)" class="btn btn-danger m-2">Delete</button> -->
   </div>
   <br>
 </div>
