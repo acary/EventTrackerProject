@@ -1,10 +1,18 @@
 <div class="container">
 
-  <div *ngIf="!selected">
-    <h1 class="display-3">Upcoming Launch Events</h1>
-    <div id="aggregateData" class="display-6"></div>
+  <div *ngIf="createForm">
+    <h1 class="display-3">Create Event</h1>
+    <button *ngIf="!showAllEvents" (click)="toggleAllEvents()" class="btn btn-primary btn-lg px-4 m-1">All Events</button>
+  </div>
+  <div *ngIf="showAllEvents  && !selected">
+    <h1 class="display-3">Upcoming Events</h1>
+    <button (click)="showCreateForm()" class="btn btn-primary btn-lg px-4 m-1">New Event</button>
+  </div>
+
+  <div *ngIf="createForm">
     <hr>
-    <h5 class="display-6">Create New Event</h5>
+    <p class="fs-5 col-md-8">Use this form to create an upcoming launch event to share with the world.</p>
+
     <form>
       <label for="title" class="form-label"><strong>Title</strong></label>
       <input type='text' name='title' [(ngModel)]="newLaunchEvent.title" ngDefaultControl placeholder='Launch Event 1'
@@ -46,13 +54,14 @@
       <label for="projectDiscord" class="form-label"><strong>Project Discord</strong></label>
       <input type='text' name='projectDiscord' [(ngModel)]="newLaunchEvent.projectDiscord" id="projectDiscord" placeholder='' class="form-control m-1" />
       
-      <button (click)="createEvent(newLaunchEvent)" class="btn btn-primary">Create Event</button>
+      <button (click)="createEvent(newLaunchEvent)" class="btn btn-success">Create Event</button>
     </form>
     <hr>
   </div>
 
-  <div id="events" *ngIf="launchEvents && !selected">
-    <h1 class="display-5">Launch Events</h1>
+  <div id="events" *ngIf="showAllEvents && !selected">
+    <hr>
+    <p class="fs-5 col-md-8">Upcoming launch events to share and participate in.</p>
     <table class="table table-striped">
       <thead>
         <tr>

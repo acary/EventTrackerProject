@@ -17,6 +17,10 @@ export class HomeComponent implements OnInit {
 
   editEvent: LaunchEvent | null = null;
 
+  createForm: boolean = false;
+
+  showAllEvents: boolean = true;
+
   constructor(
     private launchEventService: LaunchEventService
   ) { }
@@ -61,6 +65,16 @@ export class HomeComponent implements OnInit {
     console.log(event);
     this.editEvent = null;
     this.displayEvent(event);
+  }
+
+  showCreateForm = () => {
+    this.createForm = !this.createForm;
+    this.showAllEvents = !this.showAllEvents;
+  }
+
+  toggleAllEvents = () => {
+    this.showAllEvents = !this.showAllEvents;
+    this.createForm = !this.createForm;
   }
 
   createEvent(event: LaunchEvent): void {
