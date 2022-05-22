@@ -2,11 +2,30 @@
 
 ### Description
 
-LaunchEvent is an event service that tracks upcoming digital token launches.
+LaunchEvent is an event service that tracks upcoming digital token launches. Users can create a "Launch Event" that includes information such as title, description, date, cover image and contact email, and project links.
 
-The application is made up of Spring Boot and Java Persistence Application (JPA) with a MySQL database.
+The application consists of an Angular (13.3) frontend with Spring Boot API and Java Persistence Application (JPA) with a MySQL database.
 
-### Routes
+### User Functionality:
+- View all launch events
+- Create/View/Edit/Delete event
+
+---
+## Screenshots
+
+<img width="1308" alt="launch-event-item" src="https://user-images.githubusercontent.com/1522180/169718911-f8370705-2e0a-4456-a0d0-7919cfd19df2.png">
+**Launch Event**
+---
+<img width="1346" alt="launch-event-list" src="https://user-images.githubusercontent.com/1522180/169718967-6747625a-751c-4443-ae0b-ae07d7a4fb7d.png">
+**Event List**
+---
+<img width="691" alt="create-event" src="https://user-images.githubusercontent.com/1522180/169718985-277dac77-f684-4558-ad4b-131e5c3b4b91.png">
+**Create Event**
+---
+<img width="689" alt="edit-event" src="https://user-images.githubusercontent.com/1522180/169718998-84e27f2a-2d85-4daf-9897-f75b532a64a1.png">
+**Edit Event**
+---
+### API Routes
 - `GET http://localhost:8082/api/index`
 - `GET http://localhost:8082/api/events/1`
 - `GET http://localhost:8082/api/events/1`
@@ -14,7 +33,7 @@ The application is made up of Spring Boot and Java Persistence Application (JPA)
 - `PUT http://localhost:8082/api/events/1`
 - `DELETE http://localhost:8082/api/events/2`
 
-### Functionality:
+### API Functionality:
 - Show All Launch Events
 - Search Launch Event By ID
 - Search Launch Events By Keyword
@@ -24,13 +43,19 @@ The application is made up of Spring Boot and Java Persistence Application (JPA)
 
 ##### Running the program:
 ```
+- * BACKEND:
 - Import project into Spring Tool Suite (STS)
 - Compile and run main (as Spring Boot App)
 - Note: Must run MySQL with relevant database (launcheventdb) locally
+- Runs on port 8082
+- * FRONTEND:
+- Run with: ng serve -o
+- Runs on port 4201
 ```
 
 ### Technologies Used
 
+- Angular 13.3
 - Spring Boot
 - Java Persistence Application (JPA)
 - MySQL
