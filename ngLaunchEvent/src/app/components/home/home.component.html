@@ -64,7 +64,7 @@
 
   <div id="events" *ngIf="showAllEvents && !selected">
     <hr>
-    <p class="fs-5 col-md-8">Upcoming launch events to share and participate in.</p>
+    <p class="fs-5 col-md-8"><span class="badge bg-primary" [ngClass]="checkBacklog()">{{ getNumEvents() }}</span> upcoming launch events to share and participate in.</p>
     <table class="table table-striped">
       <thead>
         <tr>

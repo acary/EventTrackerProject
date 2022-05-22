@@ -46,6 +46,18 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  getNumEvents = () => {
+    let result = this.launchEvents.length;
+    return result;
+  }
+
+  checkBacklog() {
+    let count = this.getNumEvents();
+    if (count > 50) { return 'bg-danger'; }
+    else if (count >= 20) { return 'bg-warning'; }
+    else return 'bg-success';
+  }
+
   displayEvent(launchEvent: LaunchEvent): void {
     this.selected = launchEvent;
   }
