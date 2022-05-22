@@ -32,6 +32,9 @@
       <label for="eventWebsite" class="form-label"><strong>Event Website</strong></label>
       <input type='text' name='eventWebsite' [(ngModel)]="newLaunchEvent.eventWebsite" id="eventWebsite" placeholder='http://andycarypro.com'
         class="form-control m-1" />
+
+      <label for="coverImage"><strong>Cover Image</strong></label>
+      <input type="text" name="coverImage" [(ngModel)]="newLaunchEvent.coverImage" ie="coverImage" placeholder='https://images.unsplash.com/photo-1468234560893-89c00b6385c8' class="form-control" /><br>
       
       <label for="sourceAnnouncement" class="form-label"><strong>Source Announcement</strong></label>
       <input type='text' name='sourceAnnouncement' [(ngModel)]="newLaunchEvent.sourceAnnouncement" id="sourceAnnouncement" placeholder='http://andycarypro.com' class="form-control m-1" />
@@ -52,9 +55,9 @@
       <input type='text' name='projectTwitter' [(ngModel)]="newLaunchEvent.projectTwitter" id="projectTwitter" placeholder='@andycary' class="form-control m-1" />
 
       <label for="projectDiscord" class="form-label"><strong>Project Discord</strong></label>
-      <input type='text' name='projectDiscord' [(ngModel)]="newLaunchEvent.projectDiscord" id="projectDiscord" placeholder='' class="form-control m-1" />
+      <input type='text' name='projectDiscord' [(ngModel)]="newLaunchEvent.projectDiscord" id="projectDiscord" placeholder='@andycary' class="form-control m-1" />
       
-      <button (click)="createEvent(newLaunchEvent)" class="btn btn-success">Create Event</button>
+      <button (click)="createEvent(newLaunchEvent)" class="btn btn-success btn-lg px-4 m-1">Create Event</button>
     </form>
     <hr>
   </div>
@@ -98,10 +101,10 @@
     
         <div class="p-5 mb-4 bg-light rounded-3" style="background-image: url({{selected.coverImage}}); background-size: cover; background-position:center; height: auto; width: auto;">
           <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">{{selected.title}}</h1>
-            <p class="col-md-8 fs-4">{{selected.description}}</p>
+            <h1 class="display-5 fw-bold contrastText">{{selected.title}}</h1>
+            <p class="col-md-8 fs-4 contrastText">{{selected.description}}</p>
             <a href={{selected.marketplaceUrl}} target="_blank"><button class="btn btn-primary btn-lg my-2" type="button">Find on {{selected.marketplace}}</button></a>
-            <p>Launching on {{selected.eventDate | date:'MMMM d, y'}}</p>
+            <p class="contrastText">Launching on {{selected.eventDate | date:'MMMM d, y'}}</p>
           </div>
         </div>
     
