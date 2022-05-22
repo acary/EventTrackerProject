@@ -13,7 +13,7 @@ import { DefaultPipe } from './pipes/default.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

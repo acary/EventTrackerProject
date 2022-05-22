@@ -89,6 +89,7 @@ export class HomeComponent implements OnInit {
         this.launchEvents.push(event);
         this.newLaunchEvent = new LaunchEvent();
         this.reload();
+        this.toggleAllEvents();
       },
       error: (err) => {
         console.error('Error creating event: ', err);
