@@ -165,8 +165,9 @@
         <input type="text" name="projectTwitter" [(ngModel)]="editEvent.projectTwitter" class="form-control" /><br>
         <label><strong>Project Discord</strong></label>
         <input type="text" name="projectDiscord" [(ngModel)]="editEvent.projectDiscord" class="form-control" /><br>
-        <button type="button" (click)="cancelEdit()" class="btn btn-danger m-2">Cancel</button>
-        <button (click)="updateEvent(selected.id, editEvent)" class="btn btn-success">Save</button>
+        <button type="button" (click)="cancelEdit()" class="btn btn-info m-1">Cancel</button>
+        <button (click)="deleteEvent(editEvent.id)" class="btn btn-danger m-1">Delete</button>
+        <button (click)="updateEvent(selected.id, editEvent)" class="btn btn-success m-1">Save</button>
     </form>
 </div>
   <br>
