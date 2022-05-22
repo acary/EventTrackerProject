@@ -10,21 +10,20 @@ The application consists of an Angular (13.3) frontend with Spring Boot API and 
 - View all launch events
 - Create/View/Edit/Delete event
 
----
 ## Screenshots
 
 <img width="1308" alt="launch-event-item" src="https://user-images.githubusercontent.com/1522180/169718911-f8370705-2e0a-4456-a0d0-7919cfd19df2.png">
 **Launch Event**
----
+
 <img width="1346" alt="launch-event-list" src="https://user-images.githubusercontent.com/1522180/169718967-6747625a-751c-4443-ae0b-ae07d7a4fb7d.png">
 **Event List**
----
+
 <img width="691" alt="create-event" src="https://user-images.githubusercontent.com/1522180/169718985-277dac77-f684-4558-ad4b-131e5c3b4b91.png">
 **Create Event**
----
+
 <img width="689" alt="edit-event" src="https://user-images.githubusercontent.com/1522180/169718998-84e27f2a-2d85-4daf-9897-f75b532a64a1.png">
 **Edit Event**
----
+
 ### API Routes
 - `GET http://localhost:8082/api/index`
 - `GET http://localhost:8082/api/events/1`
