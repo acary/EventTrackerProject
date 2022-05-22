@@ -1,91 +1,113 @@
 <div class="container">
 
   <div *ngIf="createForm">
-    <h1 class="display-3">Create Event</h1>
-    <button *ngIf="!showAllEvents" (click)="toggleAllEvents()" class="btn btn-primary btn-lg px-4 m-1">All Events</button>
-  </div>
-  <div *ngIf="showAllEvents  && !selected">
-    <h1 class="display-3">Upcoming Events</h1>
-    <button (click)="showCreateForm()" class="btn btn-primary btn-lg px-4 m-1">New Event</button>
-  </div>
+    <main>
+      <div class="container py-4">
+        <header class="pb-3 mb-4 border-bottom">
+          <h1 class="display-3">Create Event</h1>
+          <button *ngIf="!showAllEvents" (click)="toggleAllEvents()" class="btn btn-primary btn-lg px-4 m-1">All
+            Events</button>
+        </header>
+        <p class="fs-5 col-md-8">Use this form to create an upcoming launch event to share with the world.</p>
 
-  <div *ngIf="createForm">
-    <hr>
-    <p class="fs-5 col-md-8">Use this form to create an upcoming launch event to share with the world.</p>
+        <form>
+          <label for="title" class="form-label"><strong>Title</strong></label>
+          <input type='text' name='title' [(ngModel)]="newLaunchEvent.title" ngDefaultControl
+            placeholder='Launch Event 1' class="form-control m-1" required />
 
-    <form>
-      <label for="title" class="form-label"><strong>Title</strong></label>
-      <input type='text' name='title' [(ngModel)]="newLaunchEvent.title" ngDefaultControl placeholder='Launch Event 1'
-        class="form-control m-1" required />
-      
-        <label for="description" class="form-label"><strong>Description</strong></label>
-      <input type='text' name='description' [(ngModel)]="newLaunchEvent.description" id="description" placeholder='Upcoming launch event.' class="form-control m-1"
-        required />
+          <label for="description" class="form-label"><strong>Description</strong></label>
+          <input type='text' name='description' [(ngModel)]="newLaunchEvent.description" id="description"
+            placeholder='Upcoming launch event.' class="form-control m-1" required />
 
-      <label for="eventDate" class="form-label"><strong>Event Date</strong></label>
-      <input type='text' name='eventDate' [(ngModel)]="newLaunchEvent.eventDate" id="eventDate" placeholder='2022-06-01' class="form-control m-1" />
+          <label for="eventDate" class="form-label"><strong>Event Date</strong></label>
+          <input type='text' name='eventDate' [(ngModel)]="newLaunchEvent.eventDate" id="eventDate"
+            placeholder='2022-06-01' class="form-control m-1" />
 
-      <label for="contactEmail" class="form-label"><strong>Contact Email</strong></label>
-      <input type='text' name='contactEmail' [(ngModel)]="newLaunchEvent.contactEmail" id="contactEmail" placeholder='info@tokenize.com' class="form-control m-1"
-      required />
-      
-      <label for="eventWebsite" class="form-label"><strong>Event Website</strong></label>
-      <input type='text' name='eventWebsite' [(ngModel)]="newLaunchEvent.eventWebsite" id="eventWebsite" placeholder='http://andycarypro.com'
-        class="form-control m-1" />
+          <label for="contactEmail" class="form-label"><strong>Contact Email</strong></label>
+          <input type='text' name='contactEmail' [(ngModel)]="newLaunchEvent.contactEmail" id="contactEmail"
+            placeholder='info@tokenize.com' class="form-control m-1" required />
 
-      <label for="coverImage"><strong>Cover Image</strong></label>
-      <input type="text" name="coverImage" [(ngModel)]="newLaunchEvent.coverImage" ie="coverImage" placeholder='https://images.unsplash.com/photo-1468234560893-89c00b6385c8' class="form-control" /><br>
-      
-      <label for="sourceAnnouncement" class="form-label"><strong>Source Announcement</strong></label>
-      <input type='text' name='sourceAnnouncement' [(ngModel)]="newLaunchEvent.sourceAnnouncement" id="sourceAnnouncement" placeholder='http://andycarypro.com' class="form-control m-1" />
+          <label for="eventWebsite" class="form-label"><strong>Event Website</strong></label>
+          <input type='text' name='eventWebsite' [(ngModel)]="newLaunchEvent.eventWebsite" id="eventWebsite"
+            placeholder='http://andycarypro.com' class="form-control m-1" />
 
-      <label for="blockchain" class="form-label"><strong>Blockchain</strong></label>
-      <input type='text' name='blockchain' [(ngModel)]="newLaunchEvent.blockchain" id="blockchain" placeholder='Blockchain' class="form-control m-1" />
+          <label for="coverImage"><strong>Cover Image</strong></label>
+          <input type="text" name="coverImage" [(ngModel)]="newLaunchEvent.coverImage" ie="coverImage"
+            placeholder='https://images.unsplash.com/photo-1468234560893-89c00b6385c8' class="form-control" /><br>
 
-      <label for="marketplace" class="form-label"><strong>Marketplace</strong></label>
-      <input type='text' name='marketplace' [(ngModel)]="newLaunchEvent.marketplace" id="marketplace" placeholder='OpenSea' class="form-control m-1" />
+          <label for="sourceAnnouncement" class="form-label"><strong>Source Announcement</strong></label>
+          <input type='text' name='sourceAnnouncement' [(ngModel)]="newLaunchEvent.sourceAnnouncement"
+            id="sourceAnnouncement" placeholder='http://andycarypro.com' class="form-control m-1" />
 
-      <label for="marketplaceUrl" class="form-label"><strong>Marketplace URL</strong></label>
-      <input type='text' name='marketplaceUrl' [(ngModel)]="newLaunchEvent.marketplaceUrl" id="marketplaceUrl" placeholder='http://andycarypro.com' class="form-control m-1" />
+          <label for="blockchain" class="form-label"><strong>Blockchain</strong></label>
+          <input type='text' name='blockchain' [(ngModel)]="newLaunchEvent.blockchain" id="blockchain"
+            placeholder='Blockchain' class="form-control m-1" />
 
-      <label for="categories" class="form-label"><strong>Categories</strong></label>
-      <input type='text' name='categories' [(ngModel)]="newLaunchEvent.categories" id="categories" placeholder='Category' class="form-control m-1" />
+          <label for="marketplace" class="form-label"><strong>Marketplace</strong></label>
+          <input type='text' name='marketplace' [(ngModel)]="newLaunchEvent.marketplace" id="marketplace"
+            placeholder='OpenSea' class="form-control m-1" />
 
-      <label for="projectTwitter" class="form-label"><strong>Project Twitter</strong></label>
-      <input type='text' name='projectTwitter' [(ngModel)]="newLaunchEvent.projectTwitter" id="projectTwitter" placeholder='@andycary' class="form-control m-1" />
+          <label for="marketplaceUrl" class="form-label"><strong>Marketplace URL</strong></label>
+          <input type='text' name='marketplaceUrl' [(ngModel)]="newLaunchEvent.marketplaceUrl" id="marketplaceUrl"
+            placeholder='http://andycarypro.com' class="form-control m-1" />
 
-      <label for="projectDiscord" class="form-label"><strong>Project Discord</strong></label>
-      <input type='text' name='projectDiscord' [(ngModel)]="newLaunchEvent.projectDiscord" id="projectDiscord" placeholder='@andycary' class="form-control m-1" />
-      
-      <button (click)="createEvent(newLaunchEvent)" class="btn btn-success btn-lg px-4 m-1">Create Event</button>
-    </form>
+          <label for="categories" class="form-label"><strong>Categories</strong></label>
+          <input type='text' name='categories' [(ngModel)]="newLaunchEvent.categories" id="categories"
+            placeholder='Category' class="form-control m-1" />
+
+          <label for="projectTwitter" class="form-label"><strong>Project Twitter</strong></label>
+          <input type='text' name='projectTwitter' [(ngModel)]="newLaunchEvent.projectTwitter" id="projectTwitter"
+            placeholder='@andycary' class="form-control m-1" />
+
+          <label for="projectDiscord" class="form-label"><strong>Project Discord</strong></label>
+          <input type='text' name='projectDiscord' [(ngModel)]="newLaunchEvent.projectDiscord" id="projectDiscord"
+            placeholder='@andycary' class="form-control m-1" />
+
+          <button (click)="createEvent(newLaunchEvent)" class="btn btn-success btn-lg px-4 m-1">Create Event</button>
+        </form>
+        <footer class="pt-3 mt-4 text-muted border-top">
+          &copy; 2022 Upcoming Launch Events
+        </footer>
+      </div>
+    </main>
   </div>
 
   <div id="events" *ngIf="showAllEvents && !selected">
-    <hr>
-    <p class="fs-5 col-md-8"><span class="badge bg-primary" [ngClass]="checkBacklog()">{{ getNumEvents() }}</span> upcoming launch events to share and participate in.</p>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Contact Email</th>
-          <th>Categories</th>
-          <th>Blockchain</th>
-          <th>Event Website</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let launchEvent of launchEvents" (click)="displayEvent(launchEvent)">
-          <td>{{launchEvent.title}}</td>
-          <td>{{launchEvent.description}}</td>
-          <td>{{launchEvent.contactEmail}}</td>
-          <td>{{launchEvent.categories}}</td>
-          <td>{{launchEvent.blockchain}}</td>
-          <td>{{launchEvent.eventWebsite}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <main>
+      <div class="container py-4">
+        <header class="pb-3 mb-4 border-bottom">
+          <h1 class="display-3">Upcoming Events</h1>
+          <button (click)="showCreateForm()" class="btn btn-primary btn-lg px-4 m-1">New Event</button>
+        </header>
+        <p class="fs-5 col-md-8"><span class="badge bg-primary" [ngClass]="checkBacklog()">{{ getNumEvents() }}</span>
+          upcoming launch events to share and participate in.</p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Contact Email</th>
+              <th>Categories</th>
+              <th>Blockchain</th>
+              <th>Event Website</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let launchEvent of launchEvents" (click)="displayEvent(launchEvent)">
+              <td>{{launchEvent.title}}</td>
+              <td>{{launchEvent.description}}</td>
+              <td>{{launchEvent.contactEmail}}</td>
+              <td>{{launchEvent.categories}}</td>
+              <td>{{launchEvent.blockchain}}</td>
+              <td>{{launchEvent.eventWebsite}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <footer class="pt-3 mt-4 text-muted border-top">
+          &copy; 2022 Upcoming Launch Events
+        </footer>
+      </div>
+    </main>
   </div>
 
   <div *ngIf="selected && !editEvent">
@@ -97,22 +119,25 @@
             <span class="fs-4">Launch Event</span>
           </a>
         </header>
-    
-        <div class="p-5 mb-4 bg-light rounded-3" style="background-image: url({{selected.coverImage}}); background-size: cover; background-position:center; height: auto; width: auto;">
+
+        <div class="p-5 mb-4 bg-light rounded-3"
+          style="background-image: url({{selected.coverImage}}); background-size: cover; background-position:center; height: auto; width: auto;">
           <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold contrastText">{{selected.title}}</h1>
             <p class="col-md-8 fs-4 contrastText">{{selected.description}}</p>
-            <a href={{selected.marketplaceUrl}} target="_blank"><button class="btn btn-primary btn-lg my-2" type="button">Find on {{selected.marketplace}}</button></a>
+            <a href={{selected.marketplaceUrl}} target="_blank"><button class="btn btn-primary btn-lg my-2"
+                type="button">Find on {{selected.marketplace}}</button></a>
             <p class="contrastText">Launching on {{selected.eventDate | date:'MMMM d, y'}}</p>
           </div>
         </div>
-    
+
         <div class="row align-items-md-stretch">
           <div class="col-md-6">
             <div class="h-100 p-5 text-white bg-dark rounded-3">
               <h2>Event Details</h2>
               <p>Blockchain: {{selected.blockchain}}</p>
-              <a href={{selected.sourceAnnouncement}}><button class="btn btn-outline-light" type="button">Source Announcement</button></a>
+              <a href={{selected.sourceAnnouncement}}><button class="btn btn-outline-light" type="button">Source
+                  Announcement</button></a>
             </div>
           </div>
           <div class="col-md-6">
@@ -126,7 +151,7 @@
             </div>
           </div>
         </div>
-    
+
         <footer class="pt-3 mt-4 text-muted border-top">
           &copy; 2022 Upcoming Launch Events
         </footer>
@@ -143,42 +168,44 @@
             <span class="fs-4">Launch Event</span>
           </a>
         </header>
-    <h5 class="display-6">Edit Event</h5>
-    <form>
-        <label><strong>Title</strong></label>
-        <input type="text" name="title" [(ngModel)]="editEvent.title" class="form-control" /><br>
-        <label><strong>Description</strong></label>
-        <input type="text" name="description" [(ngModel)]="editEvent.description" class="form-control" /><br>
-        <label><strong>Event Date</strong></label>
-        <input type="text" name="eventDate" [(ngModel)]="editEvent.eventDate" class="form-control" /><br>
-        <label><strong>Contact Email</strong></label>
-        <input type="text" name="contactEmail" [(ngModel)]="editEvent.contactEmail" class="form-control" /><br>
-        <label><strong>Event Website</strong></label>
-        <input type="text" name="eventWebsite" [(ngModel)]="editEvent.eventWebsite" class="form-control" /><br>
-        <label><strong>Cover Image</strong></label>
-        <input type="text" name="coverImage" [(ngModel)]="editEvent.coverImage" class="form-control" /><br>
-        <label><strong>Source Announcement</strong></label>
-        <input type="text" name="sourceAnnouncement" [(ngModel)]="editEvent.sourceAnnouncement" class="form-control" /><br>
-        <label><strong>Blockchain</strong></label>
-        <input type="text" name="blockchain" [(ngModel)]="editEvent.blockchain" class="form-control" /><br>
-        <label><strong>Marketplace</strong></label>
-        <input type="text" name="marketplace" [(ngModel)]="editEvent.marketplace" class="form-control" /><br>
-        <label><strong>Marketplace URL</strong></label>
-        <input type="text" name="marketplaceUrl" [(ngModel)]="editEvent.marketplaceUrl" class="form-control" /><br>
-        <label for="categories" class="form-label"><strong>Categories</strong></label>
-        <input type='text' name='categories' [(ngModel)]="editEvent.categories" id="categories" placeholder='Category' class="form-control m-1" />
-        <label><strong>Project Twitter</strong></label>
-        <input type="text" name="projectTwitter" [(ngModel)]="editEvent.projectTwitter" class="form-control" /><br>
-        <label><strong>Project Discord</strong></label>
-        <input type="text" name="projectDiscord" [(ngModel)]="editEvent.projectDiscord" class="form-control" /><br>
-        <button type="button" (click)="cancelEdit()" class="btn btn-info m-1">Cancel</button>
-        <button (click)="deleteEvent(editEvent.id)" class="btn btn-danger m-1">Delete</button>
-        <button (click)="updateEvent(selected.id, editEvent)" class="btn btn-success m-1">Save</button>
-    </form>
-    <footer class="pt-3 mt-4 text-muted border-top">
-      &copy; 2022 Upcoming Launch Events
-    </footer>
-    </div>
-  </main>
+        <h5 class="display-6">Edit Event</h5>
+        <form>
+          <label><strong>Title</strong></label>
+          <input type="text" name="title" [(ngModel)]="editEvent.title" class="form-control" /><br>
+          <label><strong>Description</strong></label>
+          <input type="text" name="description" [(ngModel)]="editEvent.description" class="form-control" /><br>
+          <label><strong>Event Date</strong></label>
+          <input type="text" name="eventDate" [(ngModel)]="editEvent.eventDate" class="form-control" /><br>
+          <label><strong>Contact Email</strong></label>
+          <input type="text" name="contactEmail" [(ngModel)]="editEvent.contactEmail" class="form-control" /><br>
+          <label><strong>Event Website</strong></label>
+          <input type="text" name="eventWebsite" [(ngModel)]="editEvent.eventWebsite" class="form-control" /><br>
+          <label><strong>Cover Image</strong></label>
+          <input type="text" name="coverImage" [(ngModel)]="editEvent.coverImage" class="form-control" /><br>
+          <label><strong>Source Announcement</strong></label>
+          <input type="text" name="sourceAnnouncement" [(ngModel)]="editEvent.sourceAnnouncement"
+            class="form-control" /><br>
+          <label><strong>Blockchain</strong></label>
+          <input type="text" name="blockchain" [(ngModel)]="editEvent.blockchain" class="form-control" /><br>
+          <label><strong>Marketplace</strong></label>
+          <input type="text" name="marketplace" [(ngModel)]="editEvent.marketplace" class="form-control" /><br>
+          <label><strong>Marketplace URL</strong></label>
+          <input type="text" name="marketplaceUrl" [(ngModel)]="editEvent.marketplaceUrl" class="form-control" /><br>
+          <label for="categories" class="form-label"><strong>Categories</strong></label>
+          <input type='text' name='categories' [(ngModel)]="editEvent.categories" id="categories" placeholder='Category'
+            class="form-control m-1" />
+          <label><strong>Project Twitter</strong></label>
+          <input type="text" name="projectTwitter" [(ngModel)]="editEvent.projectTwitter" class="form-control" /><br>
+          <label><strong>Project Discord</strong></label>
+          <input type="text" name="projectDiscord" [(ngModel)]="editEvent.projectDiscord" class="form-control" /><br>
+          <button type="button" (click)="cancelEdit()" class="btn btn-info m-1">Cancel</button>
+          <button (click)="deleteEvent(editEvent.id)" class="btn btn-danger m-1">Delete</button>
+          <button (click)="updateEvent(selected.id, editEvent)" class="btn btn-success m-1">Save</button>
+        </form>
+        <footer class="pt-3 mt-4 text-muted border-top">
+          &copy; 2022 Upcoming Launch Events
+        </footer>
+      </div>
+    </main>
 
-</div>
+  </div>
