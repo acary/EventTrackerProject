@@ -5,6 +5,7 @@ export class LaunchEvent {
     eventDate: string;
     contactEmail: string;
     eventWebsite: string;
+    coverImage: string;
     sourceAnnouncement: string;
     blockchain: string;
     marketplace: string;
@@ -20,6 +21,7 @@ export class LaunchEvent {
         eventDate: string='',
         contactEmail: string='',
         eventWebsite: string='',
+        coverImage: string='',
         sourceAnnouncement: string='',
         blockchain: string='',
         marketplace: string='',
@@ -34,6 +36,7 @@ export class LaunchEvent {
         this.eventDate = eventDate;
         this.contactEmail = contactEmail;
         this.eventWebsite = eventWebsite;
+        this.coverImage = coverImage;
         this.sourceAnnouncement = sourceAnnouncement;
         this.blockchain = blockchain;
         this.marketplace = marketplace;
