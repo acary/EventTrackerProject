@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LaunchEvent } from 'src/app/models/launch-event';
 import { LaunchEventService } from 'src/app/services/launch-event.service';
+import { DefaultPipe } from 'src/app/pipes/default.pipe';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,8 @@ export class HomeComponent implements OnInit {
   showAllEvents: boolean = true;
 
   constructor(
-    private launchEventService: LaunchEventService
+    private launchEventService: LaunchEventService,
+    private defaultPipe: DefaultPipe
   ) { }
 
   ngOnInit(): void {
@@ -78,6 +80,9 @@ export class HomeComponent implements OnInit {
   }
 
   createEvent(event: LaunchEvent): void {
+    if (event.coverImage === '') {
+      event.coverImage = this.defaultPipe.transform('https://images.unsplash.com/photo-1459749411175-04bf5292ceea');
+    }
     this.launchEventService.create(event).subscribe({
       next: event => {
         console.log("Created successfully: " + event.id);

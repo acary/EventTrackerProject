@@ -8,11 +8,12 @@ import { HomeComponent } from './components/home/home.component';
 import { LaunchEventService } from './services/launch-event.service';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DefaultPipe } from './pipes/default.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   providers: [
-    LaunchEventService
+    LaunchEventService,
+    DefaultPipe
   ],
   bootstrap: [AppComponent]
 })
