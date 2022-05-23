@@ -83,10 +83,6 @@ export class HomeComponent implements OnInit {
     this.reload();
   }
 
-  submitEvent() {
-    console.log('Submit event mocked...');
-  }
-
   reload(): void {
     this.launchEventService.index().subscribe({
       next: launchEvents => {

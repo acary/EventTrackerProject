@@ -14,7 +14,7 @@ The application consists of an Angular (13.3) frontend with Spring Boot API and 
 
 **Event List**
 
-<img width="1307" alt="event-list" src="https://user-images.githubusercontent.com/1522180/169719444-4dd3702b-ab14-47a8-83c0-24dcdd38d045.png">
+<img width="1196" alt="upcoming-event" src="https://user-images.githubusercontent.com/1522180/169820877-9e9c0bdf-5f4c-427f-96df-f8575cd9cc70.png">
 
 **Launch Event**
 
@@ -22,7 +22,7 @@ The application consists of an Angular (13.3) frontend with Spring Boot API and 
 
 **Create Event**
 
-<img width="691" alt="create-event" src="https://user-images.githubusercontent.com/1522180/169718985-277dac77-f684-4558-ad4b-131e5c3b4b91.png">
+<img width="692" alt="create-event" src="https://user-images.githubusercontent.com/1522180/169820938-ed919ab6-1453-41f8-bb60-3b252fa9a947.png">
 
 **Edit Event**
 
@@ -59,12 +59,14 @@ The application consists of an Angular (13.3) frontend with Spring Boot API and 
 ### Technologies Used
 
 - Angular 13.3
+- VS Code
 - Spring Boot
 - Java Persistence Application (JPA)
+- Spring Tool Suite (STS)
 - MySQL
+- MySQL Workbench
 - JavaSE-1.8
 - Gradle
-- Eclipse IDE
 
 ### Author
 
