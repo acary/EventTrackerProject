@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
 
   createFormInit(fb: FormBuilder) {
     this.createEventForm = this.fb.group({
-      id: [''],
+      id: [0],
       title: ['', Validators.required],
       description: ['', Validators.required],
       eventDate: ['', Validators.required],
@@ -46,6 +46,7 @@ export class HomeComponent implements OnInit {
       projectTwitter: [''],
       projectDiscord: [''],
     });
+    this.createEventForm.updateValueAndValidity();
     this.isEditing = true;
   }
 
