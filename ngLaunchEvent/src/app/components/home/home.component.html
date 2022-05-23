@@ -10,58 +10,86 @@
         </header>
         <p class="fs-5 col-md-8">Use this form to create an upcoming launch event to share with the world.</p>
 
-        <form>
-          <label for="title" class="form-label"><strong>Title</strong></label>
-          <input type='text' name='title' [(ngModel)]="newLaunchEvent.title" ngDefaultControl
-            placeholder='Launch Event 1' class="form-control m-1" required />
+        <form [formGroup]="createEventForm" novalidate>
+          <label for="title" class="form-label"><strong>Title *</strong></label>
+          <input type='text' [(ngModel)]="newLaunchEvent.title" id="title" placeholder='Launch Event 1'
+            class="form-control m-1" formControlName="title" />
+          <div
+            *ngIf="createEventForm.controls['title'].invalid && (createEventForm.controls['title'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="createEventForm.controls['title'].errors">
+              Title is required.
+            </div>
+          </div>
 
-          <label for="description" class="form-label"><strong>Description</strong></label>
-          <input type='text' name='description' [(ngModel)]="newLaunchEvent.description" id="description"
+          <label for="description" class="form-label"><strong>Description *</strong></label>
+          <input type='text' formControlName='description' [(ngModel)]="newLaunchEvent.description" id="description"
             placeholder='Upcoming launch event.' class="form-control m-1" required />
+          <div
+            *ngIf="createEventForm.controls['description'].invalid && (createEventForm.controls['description'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="createEventForm.controls['description'].errors">
+              Description is required.
+            </div>
+          </div>
 
-          <label for="eventDate" class="form-label"><strong>Event Date</strong></label>
-          <input type='text' name='eventDate' [(ngModel)]="newLaunchEvent.eventDate" id="eventDate"
-            placeholder='2022-06-01' class="form-control m-1" />
+          <label for="eventDate" class="form-label"><strong>Event Date *</strong></label>
+          <input type='text' formControlName='eventDate' [(ngModel)]="newLaunchEvent.eventDate" id="eventDate"
+            placeholder='2022-06-01' class="form-control m-1" required />
+          <div
+            *ngIf="createEventForm.controls['eventDate'].invalid && (createEventForm.controls['eventDate'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="createEventForm.controls['eventDate'].errors">
+              Event Date is required.
+            </div>
+          </div>
 
-          <label for="contactEmail" class="form-label"><strong>Contact Email</strong></label>
-          <input type='text' name='contactEmail' [(ngModel)]="newLaunchEvent.contactEmail" id="contactEmail"
+          <label for="contactEmail" class="form-label"><strong>Contact Email *</strong></label>
+          <input type='text' formControlName='contactEmail' [(ngModel)]="newLaunchEvent.contactEmail" id="contactEmail"
             placeholder='info@tokenize.com' class="form-control m-1" required />
+          <div
+            *ngIf="createEventForm.controls['contactEmail'].invalid && (createEventForm.controls['contactEmail'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="createEventForm.controls['contactEmail'].errors">
+              Contact Email is required.
+            </div>
+          </div>
 
           <label for="eventWebsite" class="form-label"><strong>Event Website</strong></label>
-          <input type='text' name='eventWebsite' [(ngModel)]="newLaunchEvent.eventWebsite" id="eventWebsite"
+          <input type='text' formControlName='eventWebsite' [(ngModel)]="newLaunchEvent.eventWebsite" id="eventWebsite"
             placeholder='http://andycarypro.com' class="form-control m-1" />
 
           <label for="coverImage"><strong>Cover Image</strong></label>
-          <input type="text" name="coverImage" [(ngModel)]="newLaunchEvent.coverImage" ie="coverImage"
-            placeholder='https://images.unsplash.com/photo-1468234560893-89c00b6385c8' class="form-control" /><br>
+          <input type="text" formControlName="coverImage" [(ngModel)]="newLaunchEvent.coverImage" id="coverImage"
+            placeholder='https://images.unsplash.com/photo-1468234560893-89c00b6385c8' class="form-control m-1" /><br>
 
           <label for="sourceAnnouncement" class="form-label"><strong>Source Announcement</strong></label>
-          <input type='text' name='sourceAnnouncement' [(ngModel)]="newLaunchEvent.sourceAnnouncement"
+          <input type='text' formControlName='sourceAnnouncement' [(ngModel)]="newLaunchEvent.sourceAnnouncement"
             id="sourceAnnouncement" placeholder='http://andycarypro.com' class="form-control m-1" />
 
           <label for="blockchain" class="form-label"><strong>Blockchain</strong></label>
-          <input type='text' name='blockchain' [(ngModel)]="newLaunchEvent.blockchain" id="blockchain"
+          <input type='text' formControlName='blockchain' [(ngModel)]="newLaunchEvent.blockchain" id="blockchain"
             placeholder='Blockchain' class="form-control m-1" />
 
           <label for="marketplace" class="form-label"><strong>Marketplace</strong></label>
-          <input type='text' name='marketplace' [(ngModel)]="newLaunchEvent.marketplace" id="marketplace"
+          <input type='text' formControlName='marketplace' [(ngModel)]="newLaunchEvent.marketplace" id="marketplace"
             placeholder='OpenSea' class="form-control m-1" />
 
           <label for="marketplaceUrl" class="form-label"><strong>Marketplace URL</strong></label>
-          <input type='text' name='marketplaceUrl' [(ngModel)]="newLaunchEvent.marketplaceUrl" id="marketplaceUrl"
-            placeholder='http://andycarypro.com' class="form-control m-1" />
+          <input type='text' formControlName='marketplaceUrl' [(ngModel)]="newLaunchEvent.marketplaceUrl"
+            id="marketplaceUrl" placeholder='http://andycarypro.com' class="form-control m-1" />
 
           <label for="categories" class="form-label"><strong>Categories</strong></label>
-          <input type='text' name='categories' [(ngModel)]="newLaunchEvent.categories" id="categories"
+          <input type='text' formControlName='categories' [(ngModel)]="newLaunchEvent.categories" id="categories"
             placeholder='Category' class="form-control m-1" />
 
           <label for="projectTwitter" class="form-label"><strong>Project Twitter</strong></label>
-          <input type='text' name='projectTwitter' [(ngModel)]="newLaunchEvent.projectTwitter" id="projectTwitter"
-            placeholder='@andycary' class="form-control m-1" />
+          <input type='text' formControlName='projectTwitter' [(ngModel)]="newLaunchEvent.projectTwitter"
+            id="projectTwitter" placeholder='@andycary' class="form-control m-1" />
 
           <label for="projectDiscord" class="form-label"><strong>Project Discord</strong></label>
-          <input type='text' name='projectDiscord' [(ngModel)]="newLaunchEvent.projectDiscord" id="projectDiscord"
-            placeholder='@andycary' class="form-control m-1" />
+          <input type='text' formControlName='projectDiscord' [(ngModel)]="newLaunchEvent.projectDiscord"
+            id="projectDiscord" placeholder='@andycary' class="form-control m-1" />
 
           <button (click)="createEvent(newLaunchEvent)" class="btn btn-success btn-lg px-4 m-1">Create Event</button>
         </form>

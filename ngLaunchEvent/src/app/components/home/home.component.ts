@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LaunchEvent } from 'src/app/models/launch-event';
 import { LaunchEventService } from 'src/app/services/launch-event.service';
 import { DefaultPipe } from 'src/app/pipes/default.pipe';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -22,10 +23,35 @@ export class HomeComponent implements OnInit {
 
   showAllEvents: boolean = true;
 
+  createFormVal() {
+    this.createEventForm = this.fb.group({
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      eventDate: ['', Validators.required],
+      contactEmail: ['', Validators.required],
+      eventWebsite: [''],
+      coverImage: [''],
+      sourceAnnouncement: [''],
+      blockchain: [''],
+      marketplace: [''],
+      marketplaceUrl: [''],
+      categories: [''],
+      projectTwitter: [''],
+      projectDiscord: [''],
+    });
+  }
+
+  createEventForm = new FormGroup({
+    title: new FormControl()
+  });
+
   constructor(
     private launchEventService: LaunchEventService,
-    private defaultPipe: DefaultPipe
-  ) { }
+    private defaultPipe: DefaultPipe,
+    private fb: FormBuilder
+  ) {
+    this.createFormVal();
+  }
 
   ngOnInit(): void {
     this.reload();
@@ -92,9 +118,6 @@ export class HomeComponent implements OnInit {
   }
 
   createEvent(event: LaunchEvent): void {
-    if (event.coverImage === '') {
-      event.coverImage = this.defaultPipe.transform('https://images.unsplash.com/photo-1459749411175-04bf5292ceea');
-    }
     this.launchEventService.create(event).subscribe({
       next: event => {
         console.log("Created successfully: " + event.id);

@@ -45,4 +45,5 @@ export class LaunchEvent {
         this.projectTwitter = projectTwitter;
         this.projectDiscord = projectDiscord;
     }
+
 }
