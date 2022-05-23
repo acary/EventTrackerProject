@@ -6,11 +6,15 @@ LaunchEvent is an event service that tracks upcoming digital token launches. Use
 
 The application consists of an Angular (13.3) frontend with Spring Boot API and Java Persistence Application (JPA) with a MySQL database.
 
+### Live Demo
+
+(View Demo)[http://107.20.60.229:8080/LaunchEventREST/]
+
 ### User Functionality:
 - View all launch events
 - Create/View/Edit/Delete event
 
-## Screenshots
+### Screenshots
 
 **Event List**
 
