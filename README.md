@@ -8,7 +8,7 @@ The application consists of an Angular (13.3) frontend with Spring Boot API and 
 
 ### Live Demo
 
-(View Demo)[http://107.20.60.229:8080/LaunchEventREST/]
+[View Demo](http://107.20.60.229:8080/LaunchEventREST/)
 
 ### User Functionality:
 - View all launch events
