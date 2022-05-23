@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {
 
   showAllEvents: boolean = true;
 
+  defaultImage: string = 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea';
+
   createFormVal() {
     this.createEventForm = this.fb.group({
       title: ['', Validators.required],
@@ -86,6 +88,9 @@ export class HomeComponent implements OnInit {
 
   displayEvent(launchEvent: LaunchEvent): void {
     this.selected = launchEvent;
+    if (this.selected.coverImage === '') {
+      this.selected.coverImage = this.defaultPipe.transform(this.defaultImage);
+    }
   }
 
   displayAll(): void {
