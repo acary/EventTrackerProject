@@ -11,8 +11,6 @@ export class LaunchEventService {
 
   private url = environment.baseUrl + 'api/events';
 
-  private launchEvents: LaunchEvent[] = [];
-
   constructor(
     private http: HttpClient
   ) { }

@@ -148,8 +148,8 @@ export class HomeComponent implements OnInit {
         console.log("Created successfully: " + event.id);
         this.launchEvents.push(event);
         this.newLaunchEvent = new LaunchEvent();
-        this.reload();
         this.toggleAllEvents();
+        this.reload();
       },
       error: (err) => {
         console.error('Error creating event: ', err);
