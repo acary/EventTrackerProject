@@ -25,8 +25,13 @@ export class HomeComponent implements OnInit {
 
   defaultImage: string = 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea';
 
-  createFormVal() {
+  createEventForm: any;
+
+  isEditing = false;
+
+  createFormInit(fb: FormBuilder) {
     this.createEventForm = this.fb.group({
+      id: [''],
       title: ['', Validators.required],
       description: ['', Validators.required],
       eventDate: ['', Validators.required],
@@ -41,18 +46,36 @@ export class HomeComponent implements OnInit {
       projectTwitter: [''],
       projectDiscord: [''],
     });
+    this.isEditing = true;
   }
 
-  createEventForm = new FormGroup({
-    title: new FormControl()
-  });
+  sendNewEvent() {
+    let event: LaunchEvent = {
+      id: this.createEventForm.get('id').value,
+      title: this.createEventForm.get('title').value,
+      description: this.createEventForm.get('description').value,
+      eventDate: this.createEventForm.get('eventDate').value,
+      contactEmail: this.createEventForm.get('contactEmail').value,
+      eventWebsite: this.createEventForm.get('eventWebsite').value,
+      coverImage: this.createEventForm.get('coverImage').value,
+      sourceAnnouncement: this.createEventForm.get('sourceAnnouncement').value,
+      blockchain: this.createEventForm.get('blockchain').value,
+      marketplace: this.createEventForm.get('marketplace').value,
+      marketplaceUrl: this.createEventForm.get('marketplaceUrl').value,
+      categories: this.createEventForm.get('categories').value,
+      projectTwitter: this.createEventForm.get('projectTwitter').value,
+      projectDiscord: this.createEventForm.get('projectDiscord').value
+    }
+    this.isEditing = false;
+    this.createEvent(event);
+  }
 
   constructor(
     private launchEventService: LaunchEventService,
     private defaultPipe: DefaultPipe,
     private fb: FormBuilder
   ) {
-    this.createFormVal();
+    this.createFormInit(fb);
   }
 
   ngOnInit(): void {
