@@ -54,8 +54,11 @@ The application consists of an Angular (13.3) frontend with Spring Boot API and 
 - Import project into Spring Tool Suite (STS)
 - Compile and run main (as Spring Boot App)
 - Note: Must run MySQL with relevant database (launcheventdb) locally
+- Load DB: cd DB && mysql -u root -p < launcheventdb
 - Runs on port 8082
+
 - * FRONTEND:
+- Install: cd ngLaunchEvent && npm install
 - Run with: ng serve -o
 - Runs on port 4201
 ```
